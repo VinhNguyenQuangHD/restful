@@ -1,0 +1,30 @@
+﻿body {
+}
+ul.pagination {
+    display: inline-flex;
+    list-style: none;
+}
+
+.MenuTrang {
+    margin-left: 675px;
+    left: 309px;
+    /* position: relative; */
+    top: -28px;
+    width: 300px;
+}
+
+ul.pagination {
+    font-size: 20px;
+    /* left: 13px; */
+}
+
+li {
+    margin-left: 20px;
+}
+
+.pagination-container {
+    margin-left: 665px;
+    width: 251px;
+    top: -44px;
+    top: -16px;
+}

@@ -1,0 +1,165 @@
+﻿@using FoodDA.Models
+@model List<ChiTietHoaDon>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListBaiViet</title>
+    <link href="~/Content/Trang chu/TrangChu.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/ListBaiViet.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/ListSanPham.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/ListLoaiSanPham.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/PageList.css" rel="stylesheet" />
+    <script src="~/Content/JavaScript/jquery-3.2.1.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('.home__myself').click(function () {
+                jQuery('.Trangcanhan').toggleClass('Trangcanhan__show')
+            })
+            jQuery('#Header__menu__info').click(function () {
+                jQuery('.nav.navbar-nav.navbar-right').toggleClass('nav.navbar-navnavbar-right__show')
+            })
+            jQuery('#Header__menu__info').click(function () {
+                jQuery('.Sucess').toggleClass('Sucess__show')
+            })
+            jQuery('#dangky').click(function () {
+                jQuery('.DangNhappartial').removeClass('DangNhappartial__show')
+                jQuery('.DangKypartial').toggleClass('DangKypartial__show')
+                jQuery('.ForgotPasswordpartial').removeClass('ForgotPasswordpartial__show')
+            })
+            jQuery('#dangnhap').click(function () {
+                jQuery('.DangKypartial').removeClass('DangKypartial__show')
+                jQuery('.DangNhappartial').toggleClass('DangNhappartial__show')
+                jQuery('.ForgotPasswordpartial').removeClass('ForgotPasswordpartial__show')
+            })
+            jQuery('#quenmatkhau').click(function () {
+                jQuery('.DangNhappartial').removeClass('DangNhappartial__show')
+                jQuery('.DangKypartial').removeClass('DangKypartial__show')
+                jQuery('.ForgotPasswordpartial').toggleClass('ForgotPasswordpartial__show')
+            })
+            jQuery(window).scroll(function () {
+                if (jQuery(this).scrollTop()) {
+                    jQuery('.Header__menu').addClass('sticky5');
+                    jQuery('.Header__menu__list').addClass('sticky');
+                    jQuery('.Header__logo').addClass('sticky1');
+                    jQuery('li.haha').addClass('sticky2');
+                    jQuery('.fa-align-justify').addClass('sticky3');
+                    jQuery('.introduce').addClass('.introduce__sticky');
+                    jQuery('.Trangcanhan').addClass('.Trangcanhan__sticky');
+                    jQuery('.radius__border').addClass('.radius__border__sticky');
+                    jQuery('.a__home--hover').addClass('.a__home--hover--sticky');
+                }
+                else {
+                    jQuery('.Header__menu').removeClass('sticky5');
+                    jQuery('.Header__menu__list').removeClass('sticky');
+                    jQuery('.Header__logo').removeClass('sticky1');
+                    jQuery('li.haha').removeClass('sticky2');
+                    jQuery('.fa-align-justify').removeClass('sticky3');
+                    jQuery('.introduce').removeClass('.introduce__sticky');
+                    jQuery('.Trangcanhan').removeClass('.Trangcanhan__sticky');
+                    jQuery('.radius__border').removeClass('.radius__border__sticky');
+                    jQuery('.a__home--hover').removeClass('.a__home--hover--sticky');
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <header id="Header">
+        <div class="Header__menu">
+            <div class="Header__logo"></div>
+            <ul class="Header__menu__list">
+                <li class="haha"><a href="@Url.Action("SanPhamList", "SanPham")">Sản phẩm</a></li>
+                <li class="haha"><a href="@Url.Action("ListBaiViet", "BaiViets")">Công thức nấu ăn</a></li>
+                <li class="haha"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                <li class="haha"><a href="@Url.Action("DungCuLamBepList", "SanPham")">Dụng cụ nhà bếp</a></li>
+                <li class="haha"><a href="@Url.Action("GioHang", "GioHang")">Giỏ hàng (@Html.Action("GioHangPartial", "GioHang"))</a></li>
+            </ul>
+        </div>
+        <div class="Partialview__Loai__SP__CT">
+            <div class="List__Loai__SP__partial">@Html.Action("ListLoaiSanPham", "SanPham")</div>
+            <div class="List__Loai__SP__partial">@Html.Action("ListBaiVietChuDe", "BaiViets")</div>
+        </div>
+        @using (Html.BeginForm("HistoryPay", "NguoiDungs", FormMethod.Post))
+        {
+            <div class="History__page">
+                @foreach (var item in Model)
+                {
+                    <div class="History__timePay">
+                        <div class="Detail__time">
+                           Thời Gian: @item.HoaDon.Ngay
+                        </div>
+                        <br />
+                        <div class="NameProduces">
+                            Tên sản Phẩm: @item.SanPham.TenSP
+                        </div>
+                        <br />
+                        <div class="image__border">
+                            <div class="image__produce"><img class="img" alt="@item.SanPham.HinhAnh1" src="~/IMG/IMGSamPham/@item.SanPham.HinhAnh1" /></div>
+                        </div>
+                        <br />
+                        <div class="price__Produce">
+                            Giá: @item.SanPham.Gia
+                        </div>
+                        <br />
+                        <div class="Count__produce">
+                            Số lượng: @item.SoLuong
+                        </div>
+                        <br />
+                        <div class="price__Sum">
+                            Giá: @item.ThanhTien
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        </header>
+</body>
+</html>
+<style>
+    History__timePay {
+        height: 100%;
+        background-color: white;
+        position: fixed;
+    }
+    br {
+        /* height: 4px; */
+    }
+
+    header#Header {
+        background: white;
+    }
+    .History__timePay {
+        width: 1062px;
+        display: flex;
+        margin-top: 36px;
+        margin-left: 36px;
+    }
+
+    img.img {
+        height: 73px;
+        width: 120px;
+    }
+
+    .image__produce {
+        margin: 16px;
+    }
+
+    .NameProduces {
+        width: 367px;
+        margin: 0px 0px 0px 15px;
+    }
+
+    .price__Produce {
+        width: 80px;
+        margin-right: 11px;
+    }
+
+    .Count__produce {
+        width: 88px;
+        margin-right: 16px;
+    }
+</style>

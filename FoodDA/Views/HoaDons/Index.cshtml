@@ -1,0 +1,59 @@
+﻿@model IEnumerable<FoodDA.Models.ChiTietHoaDon>
+@using FoodDA.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var db = new FoodEntities();
+    int id = Convert.ToInt32(ViewBag.id);
+
+    var total = db.ChiTietHoaDons.Where(b => b.IdHoaDon == id).Sum(b => b.SoLuong * b.SanPham.Gia);
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SanPham.TenSP)
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SanPham.Gia)
+        </th>
+        <th style="text-align: right;">
+            Thành Tiền
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SanPham.Gia)
+            </td>
+            @{
+                var sum = item.SanPham.Gia * item.SoLuong;
+            }
+            <td style="text-align: right; font-weight: bold;">
+                @sum
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="4" style="text-align: right; font-weight: bold;">
+            Tổng Tiền: @total
+        </td>
+    </tr>
+</table>

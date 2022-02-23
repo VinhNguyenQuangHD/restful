@@ -1,0 +1,42 @@
+﻿@model FoodDA.Models.Cmt
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cmt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BaiViet.TenBaiViet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaiViet.TenBaiViet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiDung.TenND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDung.TenND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCmt }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

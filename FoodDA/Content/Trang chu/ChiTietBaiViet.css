@@ -1,0 +1,34 @@
+﻿body {
+    background: linear-gradient(-61deg, #c2c4c7, #00000096);
+}
+
+.NoiDungChiTietBaiViet {
+    margin-left: 47px;
+    width: 985px;
+}
+
+.TenBaiViet {
+    font-family: monospace;
+}
+
+img {
+    width: 986px;
+    height: 352px;
+}
+
+.MoTa__BaiViet {
+    margin-top: 10px;
+    line-height: 30px;
+    font-size: 19px;
+}
+
+.NguyenLieu__BaiViet {
+    line-height: 30px;
+    font-size: 19px;
+}
+
+.HuongDan__BaiViet {
+    line-height: 30px;
+    font-size: 19px;
+}
+

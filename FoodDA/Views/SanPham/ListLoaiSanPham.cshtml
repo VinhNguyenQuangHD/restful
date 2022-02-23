@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FoodDA.Models.LoaiSP>
+
+
+<div class="List__LoaiSP">Loại sản phẩm</div>
+<div class="DS__loaiSP">
+    <ul class="TenLoai__sp">
+        @foreach (var item in Model)
+        {
+            <li><a class="Text__TenLoaiSp" href="@Url.Action("ListBaiVietTheoLoaiSanPham","LoaiSPs",new {@idLoaiSP=item.IdLoaiSP })">@item.TenLoaiSp</a></li>
+        }
+    </ul>
+</div>
+
+
+

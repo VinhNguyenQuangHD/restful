@@ -1,0 +1,35 @@
+﻿@using FoodDA.Models;
+@model List<BaiViet>
+
+<head>
+    <link href="~/Content/Trang chu/ChuDeChienPartial.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="TIEUDE">CÁC MÓN THEO CHỦ ĐỀ</div>
+    <div class="fried">MÓN CHIÊN</div>
+    <div class="border__all__monchien"></div>
+    <header id="partial__chude__monchien">
+        @foreach (var item in Model)
+        {
+            <div class="Congthuc1">
+                <div class="tinto1">
+                    <div class="img"></div>
+                    <div class="xam"></div>
+                    <div class="gadient1"></div>
+                    <div class="border1"></div>
+                    <div class="border2"></div>
+                    <a class="tenmonchien" href="@Url.Action("XemChiTietBaiViet","BaiViets",new {id=item.IdBaiViet })">@item.TenBaiViet</a>
+                    <div class="imgchien">
+                        <img alt="@item.HinhAnh1" src="~/IMG/IMGcongthuc/@item.HinhAnh1" />
+                    </div>
+                    <div class="img2chien">
+                        <img alt="@item.HinhAnh2" src="~/IMG/IMGcongthuc/@item.HinhAnh2" />
+                    </div>
+                    <div class="img3chien">
+                        <img alt="@item.HinhAnh3" src="~/IMG/IMGcongthuc/@item.HinhAnh3" />
+                    </div>
+                </div>
+            </div>
+        }
+    </header>
+</body>

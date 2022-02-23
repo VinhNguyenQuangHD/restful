@@ -1,0 +1,61 @@
+﻿@model IEnumerable<FoodDA.Models.ChiTietHoaDon>
+
+@{
+    ViewBag.Title = "ChiTietHoaDon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+
+    <hr />
+    <h2 style="color: #009432;" ,"font-weight:bold">Chi Tiết Đơn Hàng</h2>
+    @foreach (var item in Model)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                Mã Hóa Đơn
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.HoaDon.IdHoaDon)
+            </dd>
+
+            <dt>
+                Tên Sản Phẩm
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+            </dd>
+
+            <dt>
+                Số Lượng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </dd>
+            <dt>
+                Địa Chỉ
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.HoaDon.NguoiDung.DiaChi)
+            </dd>
+            <dt>
+                Tổng Tiền Đơn Hàng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.ThanhTien)
+            </dd>
+
+
+        </dl>
+     
+    }
+
+</div>
+<p>
+    
+    @Html.ActionLink("Trở Về", "Index")
+</p>

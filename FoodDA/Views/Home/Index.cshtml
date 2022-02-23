@@ -1,0 +1,272 @@
+﻿@using FoodDA.Models
+@model NguoiDung
+@{ ViewBag.Title = "Index"; }
+
+<head>
+    <link href="~/Content/Trang chu/TrangChu.css" rel="stylesheet" />
+    <script src="~/Content/JavaScript/DangNhap.js"></script>
+    <script src="~/Content/JavaScript/DangKy.js"></script>
+    <script src="~/Content/JavaScript/jquery-3.2.1.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('.home__myself').click(function () {
+                jQuery('.Trangcanhan').toggleClass('Trangcanhan__show')
+            })
+            jQuery('#Header__menu__info').click(function () {
+                jQuery('.nav.navbar-nav.navbar-right').toggleClass('nav.navbar-navnavbar-right__show')
+            })
+            jQuery('.detal__timkiem__sanpham').click(function () {
+                jQuery('.Border__Search__2').removeClass('Border__Search__2__show')
+                jQuery('.Border__Search__1').toggleClass('Border__Search__1__show')
+            })
+            jQuery('.detal__timkiem__baiviet').click(function () {
+                jQuery('.Border__Search__1').removeClass('Border__Search__1__show')
+                jQuery('.Border__Search__2').toggleClass('Border__Search__2__show')
+            })
+            jQuery('#Header__menu__info').click(function () {
+                jQuery('.Sucess').toggleClass('Sucess__show')
+            })
+            jQuery('#dangky').click(function () {
+                jQuery('.DangNhappartial').removeClass('DangNhappartial__show')
+                jQuery('.ForgotPasswordpartial').removeClass('ForgotPasswordpartial__show')
+                jQuery('.DangKypartial').toggleClass('DangKypartial__show')
+            })
+            jQuery('#dangnhap').click(function () {
+                jQuery('.DangKypartial').removeClass('DangKypartial__show')
+                jQuery('.DangNhappartial').toggleClass('DangNhappartial__show')
+                jQuery('.ForgotPasswordpartial').removeClass('ForgotPasswordpartial__show')
+            })
+            jQuery('#quenmatkhau').click(function () {
+                jQuery('.DangNhappartial').removeClass('DangNhappartial__show')
+                jQuery('.DangKypartial').removeClass('DangKypartial__show')
+                jQuery('.ForgotPasswordpartial').toggleClass('ForgotPasswordpartial__show')
+            })
+            jQuery(window).scroll(function () {
+                if (jQuery(this).scrollTop()) {
+                    jQuery('.Header__menu').addClass('sticky5');
+                    jQuery('.Header__menu__list').addClass('sticky');
+                    jQuery('.Header__logo').addClass('sticky1');
+                    jQuery('li.haha').addClass('sticky2');
+                    jQuery('.fa-align-justify').addClass('sticky3');
+                    jQuery('.introduce').addClass('.introduce__sticky');
+                    jQuery('.Trangcanhan').addClass('.Trangcanhan__sticky');
+                    jQuery('.radius__border').addClass('.radius__border__sticky');
+                    jQuery('.a__home--hover').addClass('.a__home--hover--sticky');
+                }
+                else {
+                    jQuery('.Header__menu').removeClass('sticky5');
+                    jQuery('.Header__menu__list').removeClass('sticky');
+                    jQuery('.Header__logo').removeClass('sticky1');
+                    jQuery('li.haha').removeClass('sticky2');
+                    jQuery('.fa-align-justify').removeClass('sticky3');
+                    jQuery('.introduce').removeClass('.introduce__sticky');
+                    jQuery('.Trangcanhan').removeClass('.Trangcanhan__sticky');
+                    jQuery('.radius__border').removeClass('.radius__border__sticky');
+                    jQuery('.a__home--hover').removeClass('.a__home--hover--sticky');
+                }
+            })
+        })
+    </script>
+</head>
+
+<div class="shadow"></div>
+<body>
+    <div class="Border__Search">
+        <div class="Search">
+            @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+            {
+                <div class="Border__Search__1">
+                    <input type="text" placeholder="mời bạn nhập bài viết cần tìm " id="img__action--search" name="txtTimKiem" class="Input__Search" style="border-color: rgb(238 57 218)" />
+                    <i class="fas fa-search"></i>
+                </div>}
+        </div>
+    </div>
+    <div class="Border__Search">
+        <div class="Search">
+            @using (Html.BeginForm("KetQuaTimKiemsampham", "TimKiem", FormMethod.Post))
+            {
+                <div class="Border__Search__2">
+                    <input type="text" placeholder="mời bạn nhập sản phẩm cần tìm " id="img__action--search" name="txtTimKiemsanpham" class="Input__Search" />
+                    <i class="fas fa-search"></i>
+                </div>}
+        </div>
+    </div>
+    <div class="momo">
+        <header id="Header">
+            <div class="Header__menu">
+                <div class="Header__logo"></div>
+                <ul class="Header__menu__list">
+                    <li class="haha">
+                        <a class="a__home--hover" href="@Url.Action("SanPhamList", "SanPham")">Sản phẩm</a>
+                        <div class="border__haha"></div>
+                    </li>
+                    <li class="haha">
+                        <a class="a__home--hover" href="@Url.Action("ListBaiViet","BaiViets")">Công thức nấu ăn</a>
+                        <div class="border__haha"></div>
+                    </li>
+                    <li class="haha">
+                        <a class="a__home--hover" href="@Url.Action("Index","Home")">Trang chủ</a>
+                        <div class="border__haha"></div>
+                    </li>
+                    <li class="haha">
+                        <a class="a__home--hover" href="@Url.Action("DungCuLamBepList", "SanPham")">Dụng cụ nhà bếp</a>
+                        <div class="border__haha"></div>
+                    </li>
+                    <li class="haha timkiem">
+                        Tìm kiếm
+                        <div class="List__timkiem">
+                            <ul>
+                                <li class="detal__timkiem detal__timkiem__sanpham">Bài viết</li>
+                                <li class="detal__timkiem detal__timkiem__BaiViet">Sản phẩm</li>
+                            </ul>
+                        </div>
+                        <div class="border__haha"></div>
+                    </li>
+                    <li class="haha">
+                        <a class="a__home--hover" href="@Url.Action("GioHang", "GioHang")">Giỏ hàng (@Html.Action("GioHangPartial", "GioHang"))</a>
+                        <div class="border__haha"></div>
+                    </li>
+                </ul>
+                <div id="Header__menu__info" class="Header__menu__info1">
+                    <i class="fas fa-align-justify"></i>
+                </div>
+                <div class="introduce">
+                    <div class="Sucess1">
+                        @if (Session["tennguoidung"] != null)
+                        {
+
+                            <div class="Sucess">
+                                <div class="xinchao">
+                                    Xin chào : @Session["tennguoidung"]
+                                </div>
+                                <div id="quenmatkhau">Đổi mật khẩu</div>
+                                <div id="History__pay">
+                                    <a class="history" href="@Url.Action("HistoryPay","NguoiDungs")">Lịch sử</a>
+                                </div>
+                                <div class="logout"><a href="~/NguoiDungs/Logout">Đăng xuất</a></div>
+                            </div> }
+                        else
+                        {
+                            <div class="nav navbar-nav navbar-right">
+                                <div id="dangky">
+                                    Đăng ký
+                                </div>
+                                <div id="dangnhap">Đăng nhập</div>
+                            </div>}
+                    </div>
+
+                </div>
+            </div>
+            <div class="radius__border"></div>
+            <div class="Trangcanhan">
+                <ul class="Trangcanhan__list">
+                </ul>
+            </div>
+        </header>
+        <div id="img__action">
+            <div class="DangKypartial">
+                @Html.Action("Register", "NguoiDungs")
+            </div>
+            <div class="DangNhappartial">
+                @Html.Action("Login", "NguoiDungs")
+            </div>
+            <!---->
+            <div class="ForgotPasswordpartial">
+                @Html.Action("ChangePassword", "NguoiDungs")
+            </div>
+            <div class="img__action--font1move">Con đường chân chính đi đến trái tim người phụ nữ</div>
+            <div class="img__action--font2move">Là đường đi qua qua bao tử</div>
+            <div class="img__action--move">
+                <div id="chef"></div>
+                <div class="dishes dishes1"></div>
+                <div class="dishes dishes2"></div>
+                <div class="dishes dishes3"></div>
+            </div>
+            <div class="img__action__up">
+                <i class="fas fa-angle-double-up"></i>
+            </div>
+        </div>
+        <div class="Noidung">
+            <div class="Noidung__chude">
+                @Html.Action("CongThucChudePartial", "CongThucTheoChuDe")
+            </div>
+            <div class="Noidung__chude__list">
+                <div class="Noidung__chude__list__chien">
+                    @Html.Action("CongThucChudeChienPartial", "CongThucTheoChuDe")
+                </div>
+                <div class="Noidung__chude__list__nuong">
+                    @Html.Action("CongThucChudeNuongPartial", "CongThucTheoChuDe")
+                </div>
+                <div class="Noidung__chude__list__soup">
+                    @Html.Action("CongThucChudeSoupPartial", "CongThucTheoChuDe")
+
+                </div>
+                <div class="Noidung__chude__list__soup">
+                    @Html.Action("CongThucChudeXaoPartial", "CongThucTheoChuDe")
+
+                </div>
+            </div>
+            <div class="Noidung__sanpham">
+                @Html.Action("SanPhamPartial", "SanPham")
+
+            </div>
+            <div class="Noidung__NguyenLieu">
+                @Html.Action("NguyenLieuPartial", "SanPham")
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="footer__slogen">
+                Có người cho rằng một món ăn ngon trước hết phải đẹp. Chỉ khi đẹp lên mới thấy thích thì mới có ý muốn ăn món đó. Nhưng với những người khác, một món ăn ngon là ở tâm thế của người nấu và cách người dùng thưởng thức.
+            </div>
+            <div class=""></div>
+            <div id="footer__writer">
+                Trang web được viết bởi Nhóm của Tiến!!
+            </div>
+        </footer>
+    </div>
+</body>
+<style>
+    footer#footer {
+        padding-top: 24px;
+        padding-bottom: 16px;
+        height: 40%;
+        /* text-align: center; */
+        padding-left: 17px;
+    }
+
+    .ForgotPasswordpartial {
+        display: none;
+    }
+
+        .ForgotPasswordpartial.ForgotPasswordpartial__show {
+            display: block;
+            transition: 1s;
+            position: relative;
+            top: -565px;
+            background: #f0f8ff9e;
+            width: 450px;
+            height: 264px;
+            z-index: 1;
+            border-radius: 30px;
+            left: 300px;
+        }
+    .NoiDung__dangnhap {
+        margin-right: 20px;
+    }
+    .form-horizontal {
+        height: 306px;
+    }
+
+    .ForgotPasswordpartial.ForgotPasswordpartial__show {
+        height: 308px;
+        z-index: 2;
+        font-family: monospace;
+        color: black;
+        font-size: 14px;
+    }
+</style>

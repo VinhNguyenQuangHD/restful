@@ -1,0 +1,107 @@
+﻿@model FoodDA.Models.BaiViet
+
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <hr />
+    <h2 style="color: #009432;" ,"font-weight:bold">Chi Tiết Bài Viết</h2>
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Chủ Đề:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuDe.TenChuDe)
+        </dd>
+
+        <dt>
+            Ngày Cập Nhật:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay)
+        </dd>
+
+        <dt>
+            Tên Bài Viết:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenBaiViet)
+        </dd>
+
+        <dt>
+            Lượng Kcal:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kcal)
+        </dd>
+
+        <dt>
+            Mô Tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            Nguyên Liệu:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguyenLieu)
+        </dd>
+
+
+        <dt>
+            Hướng Dẫn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HuongDan)
+        </dd>
+
+        <dt>
+            Hình Ảnh:
+        </dt>
+
+        <dd>
+            <img src="~/IMG/IMGcongthuc/@Model.HinhAnh1" width="300" height="200" />
+        </dd>
+
+        <dt>
+            Hình Ảnh:
+        </dt>
+
+        <dd>
+            <img src="~/IMG/IMGcongthuc/@Model.HinhAnh2" width="300" height="200" />
+
+        <dt>
+            Hình Ảnh:
+        </dt>
+
+        <dd>
+            <img src="~/IMG/IMGcongthuc/@Model.HinhAnh3" width="300" height="200" />
+        </dd>
+
+        <dt>
+            Link Video:
+        </dt>
+
+        <dd>
+            <iframe width="642" height="361" src="https://www.youtube.com/embed/@Model.LinkYoutube" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh Sửa", "suabaiviet", new { id = Model.IdBaiViet }) |
+    @Html.ActionLink("Trờ Về", "Index")
+</p>

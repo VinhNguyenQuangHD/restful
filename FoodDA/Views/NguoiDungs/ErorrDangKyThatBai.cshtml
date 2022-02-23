@@ -1,0 +1,36 @@
+﻿@using FoodDA.Models;
+@model SanPham
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>XemChiTietBaiViet</title>
+    <link href="~/Content/Trang chu/TrangChu.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/SanPhamChiTiet.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/ERROR.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header id="Header">
+        <div class="Header__menu">
+            <div class="Header__logo"></div>
+            <ul class="Header__menu__list">
+                <li class="haha"><a href="@Url.Action("SanPhamList", "SanPham")">Sản phẩm</a></li>
+                <li class="haha"><a href="#"></a>Công thức nấu ăn</li>
+                <li class="haha"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                <li class="haha"><a href="#"></a>Dụng cụ nhà bếp</li>
+                <li class="haha"><a href="#"></a>Giỏ hàng</li>
+            </ul>
+        </div>
+        <div class="NoiDung__error">
+            <div class="img__erorr">
+                <img src="~/IMG/IMGtrngchu/error.png" class="ERROR__IMG" />
+            </div>
+            <h2 class="DANGNHAPTHATBAI"> Đăng ký thất bại</h2>
+            <h3 class="VUILONGKITRAMATKHAUTAIKHOAN">Email hoặc tài khoản đã có người sử dụng</h3>
+            <div class="backtohome"><a href="@Url.Action("Index","Home")">trở lại trang chủ</a></div>
+        </div>
+    </header>
+</body>
+</html>

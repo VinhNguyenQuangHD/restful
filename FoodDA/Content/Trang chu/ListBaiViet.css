@@ -1,0 +1,155 @@
+﻿body {
+}
+
+.Header__img__BaiViet__HA1 {
+    width: 200px;
+    height: 200px;
+}
+
+.Header__img__BaiViet__HA2 {
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.Header__img__BaiViet__HA3 {
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tin__all__BaiViet:hover .Header__img__BaiViet__HA2 {
+    transition: 2s;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+}
+
+.tin__all__BaiViet:hover .Header__img__BaiViet__HA3 {
+    transition-delay: 5s;
+    transition: 2s;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+}
+
+.List__BaiViet {
+    margin-bottom: -101px;
+    width: 949px;
+    position: relative;
+    left: 176px;
+}
+
+.Border__List__baiViet {
+    /* transform: scale(1.2); */
+    width: 170px;
+    height: 170px;
+    border-style: solid;
+    border-width: 2px;
+    position: absolute;
+    top: 15px;
+    z-index: 2;
+    left: 13px;
+    border-color: #8b41008a;
+}
+
+.background__shadow__List__baiViet {
+    /* left: -13px; */
+    background: linear-gradient(131deg, #b79292, #00000061);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
+
+.Header__NoiDung__BaiViet__TenBaiViet {
+    cursor: pointer;
+    color: blanchedalmond;
+    font-family: monospace;
+    width: 170px;
+    top: 63px;
+    position: absolute;
+    /* width: 164px; */
+    z-index: 2;
+    left: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.Header {
+    position: relative;
+    top: 76px;
+}
+
+.Header__NoiDung__BaiViet {
+    cursor: context-menu;
+    width: 685px;
+    position: relative;
+    top: -190px;
+    left: 253px;
+    line-height: 33px;
+    font-family: monospace;
+    font-weight: bolder;
+    text-align: inherit;
+}
+
+h2.CONGTHUCNAUAN__LIST {
+    position: relative;
+    left: 174px;
+    width: 805px;
+    font-family: monospace;
+    top: 38px;
+}
+
+a.a__list__baiviet {
+    text-decoration-line: initial;
+}
+
+.tin__all__BaiViet:hover .background__shadow__List__baiViet {
+    transition: 1s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tin__all__BaiViet {
+    height: 200px;
+    position: relative;
+    width: 200px;
+}
+
+
+    .tin__all__BaiViet:hover .Border__List__baiViet {
+        transition: 1s;
+        transform: scale(0);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .tin__all__BaiViet:hover .a__list__baiviet {
+        transition: 1s;
+        color: #282020;
+        font-weight: bold;
+    }
+
+.List__LoaiSP {
+    padding-top: 20px;
+    margin-left: 25px;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+
+a {
+    text-decoration: double;
+    font-family: monospace;
+}

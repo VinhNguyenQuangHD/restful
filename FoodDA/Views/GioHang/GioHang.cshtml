@@ -1,0 +1,144 @@
+﻿@using FoodDA.Models
+@model List<GioHang>
+<head>
+    <link href="~/Content/Trang chu/TrangChu.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/GioHang.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/SuaGioHang.css" rel="stylesheet" />
+    <script src="~/Content/JavaScript/jquery-3.2.1.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('.SUAGIOHANGBTN').click(function () {
+                jQuery('.basket__SuaGioHang').toggleClass('basket__SuaGioHang__show');
+                jQuery('.body__GioHang').addClass('body__GioHang__show');
+                jQuery('.home__myself').click(function () {
+                    jQuery('.Trangcanhan').toggleClass('Trangcanhan__show')
+                })
+                jQuery('#Header__menu__info').click(function () {
+                    jQuery('.nav.navbar-nav.navbar-right').toggleClass('nav.navbar-navnavbar-right__show')
+                })
+                jQuery('#Header__menu__info').click(function () {
+                    jQuery('.Sucess').toggleClass('Sucess__show')
+                })
+                jQuery('#dangky').click(function () {
+                    jQuery('.DangNhappartial').removeClass('DangNhappartial__show')
+                    jQuery('.DangKypartial').toggleClass('DangKypartial__show')
+                    jQuery('.ForgotPasswordpartial').removeClass('ForgotPasswordpartial__show')
+                })
+                jQuery('#dangnhap').click(function () {
+                    jQuery('.DangKypartial').removeClass('DangKypartial__show')
+                    jQuery('.DangNhappartial').toggleClass('DangNhappartial__show')
+                    jQuery('.ForgotPasswordpartial').removeClass('ForgotPasswordpartial__show')
+                })
+                jQuery('#quenmatkhau').click(function () {
+                    jQuery('.DangNhappartial').removeClass('DangNhappartial__show')
+                    jQuery('.DangKypartial').removeClass('DangKypartial__show')
+                    jQuery('.ForgotPasswordpartial').toggleClass('ForgotPasswordpartial__show')
+                })
+                jQuery(window).scroll(function () {
+                    if (jQuery(this).scrollTop()) {
+                        jQuery('.Header__menu').addClass('sticky5');
+                        jQuery('.Header__menu__list').addClass('sticky');
+                        jQuery('.Header__logo').addClass('sticky1');
+                        jQuery('li.haha').addClass('sticky2');
+                        jQuery('.fa-align-justify').addClass('sticky3');
+                        jQuery('.introduce').addClass('.introduce__sticky');
+                        jQuery('.Trangcanhan').addClass('.Trangcanhan__sticky');
+                        jQuery('.radius__border').addClass('.radius__border__sticky');
+                        jQuery('.a__home--hover').addClass('.a__home--hover--sticky');
+                    }
+                    else {
+                        jQuery('.Header__menu').removeClass('sticky5');
+                        jQuery('.Header__menu__list').removeClass('sticky');
+                        jQuery('.Header__logo').removeClass('sticky1');
+                        jQuery('li.haha').removeClass('sticky2');
+                        jQuery('.fa-align-justify').removeClass('sticky3');
+                        jQuery('.introduce').removeClass('.introduce__sticky');
+                        jQuery('.Trangcanhan').removeClass('.Trangcanhan__sticky');
+                        jQuery('.radius__border').removeClass('.radius__border__sticky');
+                        jQuery('.a__home--hover').removeClass('.a__home--hover--sticky');
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<div class="body__GioHang">
+</div>
+<body>
+    <header id="Header" style="position:relative">
+        <div class="Header__menu">
+            <div class="Header__logo"></div>
+            <ul class="Header__menu__list">
+                <li class="haha"><a href="@Url.Action("SanPhamList", "SanPham")">Sản phẩm</a></li>
+                <li class="haha"><a href="@Url.Action("ListBaiViet", "BaiViets")">Công thức nấu ăn</a></li>
+                <li class="haha"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                <li class="haha"><a href="@Url.Action("DungCuLamBepList", "SanPham")">Dụng cụ nhà bếp</a></li>
+                <li class="haha"><a href="@Url.Action("GioHang", "GioHang")">Giỏ hàng</a></li>
+            </ul>
+        </div>
+        <main>
+            <div class="basket">
+                <div>
+                    <button class="SUAGIOHANGBTN">Sửa giỏ hàng</button>
+                </div>
+                <div class="basket-labels">
+                    <ul>
+                        <li class="item item-heading">Sản Phẩm</li>
+                        <li class="price">Giá tiền</li>
+                        <li class="quantity">Số lượng </li>
+                        <li class="subtotal">Tổng giá</li>
+                    </ul>
+                </div>
+                @foreach (var item in Model)
+                {
+                    <div class="basket-product">
+                        <div class="item">
+                            <div class="product-image">
+                                <img src="@Url.Content("~/IMG/IMGSamPham/"+item.HinhAnh1)" />
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h1><strong class="strong__h1"><span class="item-quantity"></span>@item.TenSP</strong></h1>
+                        </div>
+                        <div class="price">@String.Format("{0:0,0}", item.Gia.ToString()) VND</div>
+                        <div class="quantity">
+                            @item.Soluong
+                        </div>
+                        <div class="subtotal">@String.Format("{0:0,0}", item.ThanhTien.ToString()) VND</div>
+                    </div>
+                }
+            </div>
+            <aside>
+                <div class="summary">
+                    <div class="summary-total-items"><span class="total-items"></span>Sản Phẩm trong giỏ hàng</div>
+                    <div class="summary-subtotal">
+                        <div class="subtotal-title">Tổng tiền</div>
+                        <div class="subtotal-value final-value" id="basket-subtotal">
+                            @Model.Sum(x => x.Soluong * x.ThanhTien).ToString()
+                        </div>
+                        <div class="summary-promo hide">
+                            <div class="promo-title">Promotion</div>
+                            <div class="promo-value final-value" id="basket-promo"></div>
+                        </div>
+                    </div>
+                    <div class="summary-total">
+                        <div class="total-title">Total</div>
+                        <div class="total-value final-value" id="basket-total">
+                            @Model.Sum(x => x.Soluong * x.ThanhTien).ToString()
+                        </div>
+                    </div>
+                    @using (Html.BeginForm("DatHang", "GioHang"))
+                    {
+                        <div class="summary-checkout">
+                            <button class="checkout-cta">Đặt hàng</button>
+                        </div>
+                    }
+                </div>
+            </aside>
+            <div class="form__suagiohang">
+                @Html.Action("SuaGioHang", "GioHang")
+            </div>
+        </main>
+    </header>
+</body>

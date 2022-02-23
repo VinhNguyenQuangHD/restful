@@ -1,0 +1,89 @@
+﻿
+@using FoodDA.Models
+@model List<GioHang>
+@{
+    Layout = null;
+}
+<head>
+    <link href="~/Content/Trang chu/GioHang.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/SuaGioHang.css" rel="stylesheet" />
+    <script src="~/Content/JavaScript/GioHang.js"></script>
+</head>
+        <div class="SuaGioHang">
+            <div class="basket basket__SuaGioHang">
+                <div class="basket-labels basket-labels__SuaGioHang">
+                    <ul>
+                        <li class="item item-heading">Sản Phẩm</li>
+                        <li class="price">Giá tiền</li>
+                        <li class="quantity">Số lượng </li>
+                        <li class="subtotal">Tổng giá</li>
+                    </ul>
+                </div>
+                @if(Session["GioHang"] == null)
+            {
+                    <div>
+                        Vui lòng mua sản phẩm
+                    </div>
+            }
+                @foreach (var item in Model)
+                {
+            <div class="basket-product basket-product__SuaGioHang">
+                <div class="item item__SuaGioHang">
+                    <div class="product-image product-image__SuaGioHang">
+                        <img src="@Url.Content("~/IMG/IMGSamPham/"+item.HinhAnh1)" />
+                    </div>
+                </div>
+                <div class="product-details product-details__SuaGioHang">
+                    <h1><strong><span class="item-quantity"></span>@item.TenSP</strong></h1>
+                </div>
+                <div class="price">@String.Format("{0:0,0}", item.Gia.ToString()) VND</div>
+                @using (Html.BeginForm("CapNhapGioHang", "GioHang", new { @idSanPham = item.idSanPham }))
+                {
+                    <div class="quantity quantity__SuaGioHang">
+                        <input type="text" value="@item.Soluong"  id="txtSoLuong" name="txtSoLuong" />
+                        <div class="error__SuaGioHang"></div>
+                    </div>
+                    <div class="subtotal subtotal__SuaGioHang">@String.Format("{0:0,0}", item.ThanhTien.ToString()) VND</div>
+                    <div class="remove remove__SuaGioHang">
+                        <input class="button__SuaGioHang" type="submit" value="Cập nhập" onclick="return validatorSuaGioHang()"/>
+                    </div>
+                    <div class="removeproduce">
+                        @Html.ActionLink("Xóa", "XoaGioHang", new { @idSanPham = item.idSanPham } ,new {@class="remove" })
+                    </div>
+                }
+            </div>
+                }
+            </div>
+        </div>
+<style>
+    a {
+        position: relative;
+    }
+    input#txtSoLuong {
+        width: 50px;
+        text-align: center;
+    }
+    .error__SuaGioHang {
+        margin-top: 2px;
+        position: relative;
+        width: 195px;
+        color:red;
+    }
+    a.remove {
+        position: relative;
+        width: 30px;
+        top: 12px;
+        color: darkblue;
+        font-size: 16px;
+        font-family: monospace;
+    }
+    .basket__SuaGioHang__show {
+        transition: 1s;
+        background: #423f40;
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
+        animation: body__GioHang__show 1s forwards;
+    }
+
+</style>

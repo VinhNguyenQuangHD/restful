@@ -1,0 +1,67 @@
+﻿body {
+}
+
+header#partial__sanpham {
+    position: absolute;
+    display: flex;
+    top: 2100px;
+}
+
+.img1__sanpham {
+    z-index: 1;
+    position: relative;
+}
+
+.img2__sanpham {
+    position: absolute;
+    top: 0px;
+}
+
+.tinto__sanpham {
+    margin-left: 33px;
+}
+
+.tensanpham {
+    /* top: 12px; */
+    position: absolute;
+    z-index: 4;
+    width: 221px;
+    top: 210px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: x-large;
+    color: rgb(173 141 141 / 80%);
+    text-decoration: none;
+    /* opacity: 0; */
+    /* visibility: hidden; */
+}
+
+.sanpham__price {
+    z-index: 1;
+    top: 300px;
+    position: absolute;
+    font-size: 22px;
+    color: aliceblue;
+}
+
+.TIEUDE__MONAN {
+    FONT-SIZE: 28PX;
+    COLOR: aliceblue;
+    POSITION: absolute;
+    TOP: 2000PX;
+    LEFT: 28PX;
+}
+
+.border__all__sanoham {
+    border-style: solid;
+    z-index: 1;
+    background-color: #222424;
+    width: 100%;
+    top: 2036px;
+    height: 411px;
+    border-color: white;
+    position: absolute;
+    border-width: 1px;
+    opacity: 1;
+}

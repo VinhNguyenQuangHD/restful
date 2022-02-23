@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="~/Content/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="~/Content/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Content/css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="~/Content/css/quill.snow.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+            <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <li><a class="add__Cagrt" href="/Home/Index"><i class="fa fa-home fa-fw"></i> Trang Chủ Website</a></li>
+            </ul>
+
+            <ul class="nav navbar-right navbar-top-links">
+
+                <li class="dropdown">
+                    <a data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> Thông Tin Thêm <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="/NguoiDungs/Details"><i class="fa fa-user fa-fw"></i> Quản Lý tài Khoản</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/NguoiDungs/Logout"><i class="fa fa-sign-out fa-fw"></i> Đăng Xuất</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+
+                        <li>
+                            <a href="/SanPham/SanPhamsPartial"><i class="fa fa-dashboard fa-fw"></i> Thông Tin Sản Phẩm</a>
+                        </li>
+
+                        <li>
+                            <a href="/BaiViets/Index"><i class="fa fa-file"></i> Thông Tin Bài Viết</a>
+                        </li>
+
+                        <li>
+                            <a href="/DonHang/Index"><i class="fa fa-table fa-fw"></i> Đơn Hàng</a>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Thống Kê</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/ThongKe/Index">Hoá Đơn (Last 30 Day)</a>
+                                </li>
+                                <li>
+                                    <a href="/ThongKe/SanPham">Sản Phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="/ThongKe/BaiViet">Bài Viết</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="/NguoiDungs/Index"><i class="fa fa-files-o fa-fw"></i> Thông Tin Người Dùng</a>
+
+                        </li>
+                    </ul>
+
+                    <img src="https://png.pngtree.com/png-clipart/20190117/ourlarge/pngtree-food-cooking-chef-stir-fry-png-image_438767.jpg" width="250" height="350" />
+                </div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" style="background-color: rgba(253, 167, 223,0.1) ">
+            <div class="container-fluid">
+                <div class="row">
+
+                    @RenderBody()
+                    <!-- /.col-lg-12 -->
+                </div>
+                <footer>
+                    <div class="footer-top ">
+                        <div>
+                            <p style="width:100%; height:2px; background-color:rgba(137,137,137,0.5);  box-shadow: 1px 8px 14px #c1bbbb;"></p>
+                            <div class="row">
+                                <div class="col-md-5 col-lg-5 footer-about wow fadeInUp ">
+                                    <img class="logo-footer " src="~/IMG/TT-TT.png" style="text-align: center; height: 180px; width: 250px" alt="logo-footer " data-at2x="/IMG/TT-TT.png ">
+                                </div>
+                                <div class="col-md-5 col-lg-5 offset-lg-1 footer-contact wow fadeInDown ">
+                                    <h3 style="color: #e84118">Liên hệ:</h3>
+                                    <p><i class="nc-icon nc-favourite-28 "></i>Địa Chỉ: 140/10 Bạch Đằng, Phường 24, Quận Bình Thạnh, Tp.HCM</p>
+                                    <p><i class="nc-icon nc-favourite-28  "></i> Phone: 0933566122</p>
+                                    <p><i class="nc-icon nc-favourite-28  "></i> Email: <a href="mailto:hello@domain.com ">trantrungtruc1999@gmail.com</a></p>
+                                    <p><i class="nc-icon nc-favourite-28 "></i> Skype: rino-tk</p>
+                                </div>
+                            </div>
+                            <h4 style="text-align: center; color: #009432 ">
+                                Hãy đến với chúng tôi. Chúng tôi sẽ mang đến cho bạn những giá trị tuyệt vời nhất.
+                            </h4>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+
+            <!-- /#page-wrapper -->
+            <!-- /#wrapper -->
+            <!-- jQuery -->
+            <script src="~/Content/js/jquery.min.js"></script>
+
+            <!-- Bootstrap Core JavaScript -->
+            <script src="~/Content/js/bootstrap.min.js"></script>
+
+            <!-- Metis Menu Plugin JavaScript -->
+            <script src="~/Content/js/metisMenu.min.js"></script>
+
+            <!-- Morris Charts JavaScript -->
+            <script src="~/Content/js/raphael.min.js"></script>
+            <script src="~/Content/js/morris.min.js"></script>
+            <script src="~/Content/js/morris-data.js"></script>
+
+            <!-- Custom Theme JavaScript -->
+            <script src="~/Content/js/startmin.js"></script>
+            <script src="~/Content/js/quill.js"></script>
+            <script>
+                var quill = new Quill('#editor', {
+                    theme: 'snow'
+                });
+            </script>
+
+        </div>
+
+
+    </div>
+    @RenderSection("scripts", false)
+</body>
+</html>
+<style>
+    .navbar-inverse .navbar-nav > li > a {
+        color: #c0392b
+    }
+    .navbar-top-links > li > a:hover {
+        color: #c0392b
+    }
+</style>
+

@@ -1,0 +1,67 @@
+﻿body {
+}
+
+header#partial__nguyenlieu {
+    position: absolute;
+    display: flex;
+    top: 2598px;
+}
+
+.img1__nguyenlieu {
+    z-index: 1;
+    position: relative;
+}
+
+.img2__nguyenlieu {
+    position: absolute;
+    top: 0px;
+}
+
+.tinto__nguyenlieu {
+    margin-left: 33px;
+}
+
+.tennguyenlieu {
+    /* top: 12px; */
+    position: absolute;
+    z-index: 4;
+    width: 221px;
+    top: 210px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: x-large;
+    color: rgb(173 141 141 / 80%);
+    text-decoration: none;
+    /* opacity: 0; */
+    /* visibility: hidden; */
+}
+
+.nguyenlieu__price {
+    z-index: 1;
+    top: 300px;
+    position: absolute;
+    font-size: 22px;
+    color: aliceblue;
+}
+
+.TIEUDE__Nguyenlieu {
+    FONT-SIZE: 28PX;
+    COLOR: aliceblue;
+    POSITION: absolute;
+    TOP: 2513PX;
+    LEFT: 28PX;
+}
+
+.border__all__nguyenlieu {
+    border-style: solid;
+    z-index: 1;
+    background-color: #222424;
+    width: 100%;
+    top: 2553px;
+    height: 411px;
+    border-color: white;
+    position: absolute;
+    border-width: 1px;
+    opacity: 1;
+}

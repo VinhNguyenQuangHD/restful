@@ -1,0 +1,147 @@
+﻿
+body {
+}
+
+.img__xao {
+    position: relative;
+    width: 222px;
+}
+
+.img2__xao {
+    top: 0px;
+    width: 222px;
+    position: absolute;
+}
+
+.img3__xao {
+    width: 222px;
+    top: 0px;
+    position: absolute;
+}
+
+header#partial__chude__xao {
+    margin-top: 0px;
+    position: absolute;
+    top: 920px;
+}
+
+.Congthuc__xao {
+    margin-left: 1053px;
+    position: relative;
+    margin-top: 43px;
+}
+
+.border__all__xao {
+    background-size: cover;
+    border-color: white;
+    width: 277px;
+    height: 1021px;
+    position: absolute;
+    border-style: solid;
+    left: 1022px;
+    top: 898px;
+    background-image: url('../../IMG/IMGtrngchu/3-cach-lam-mon-muc-xao-voi-rau-cu-gion-ngot-ai-cung-lam-duoc-24-760x367.jpg');
+}
+
+.xao {
+    BACKGROUND-COLOR: TRANSPARENT;
+    POSITION: absolute;
+    COLOR: white;
+    TOP: 918PX;
+    Z-INDEX: 1;
+    FONT-FAMILY: cursive;
+    LEFT: 1099PX;
+    FONT-SIZE: 22PX;
+}
+
+.border__xao {
+    left: 71px;
+    border: solid 2px;
+    position: absolute;
+    height: 80px;
+    width: 75px;
+    top: 54px;
+    /* border-style: ridge; */
+    /* border: ridge 1px; */
+    /* border-style: dashed; */
+    opacity: 0;
+    z-index: 2;
+    border-color: #aa48b1d4;
+}
+
+
+.tinto__xao:hover .border__xao {
+    opacity: 1;
+    transform: skewX(1.5);
+    transition: 1s;
+}
+
+
+.tinto__xao:hover .pink {
+    opacity: 0;
+    transition: 2s;
+}
+
+.tinto__xao:hover .gadient__xao {
+    opacity: 0;
+}
+
+.tinto__xao:hover a {
+    transition: 1s;
+    opacity: 1;
+    visibility: visible;
+}
+
+.pink {
+    background-color: rgb(103 68 68 / 60%);
+    height: 200px;
+    width: 222px;
+    /* top: 0px; */
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.gadient__xao {
+    /* background: rgb(110 99 103 / 30%); */
+    /* background: linear-gradient(
+45deg
+, black, transparent); */
+    /* background: rgb(110 99 103 / 30%); */
+    /* background: linear-gradient( 
+45deg
+ , black, transparent); */
+    background: linear-gradient(rgb(8 3 3 / 30%),rgba(182,154,154,0.3));
+    position: absolute;
+    width: 222px;
+    height: 200px;
+    top: 0px;
+    opacity: 1;
+    z-index: 2;
+}
+
+.tinto__xao:hover .border__xao {
+    opacity: 1;
+    transform: scale(2.1);
+    transition: 1s;
+}
+
+.tinto__xao a {
+    color: rgb(249 249 249 / 80%);
+}
+
+.tenmonxao {
+    position: absolute;
+    z-index: 4;
+    width: 157px;
+    top: 55px;
+    left: 34px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: x-large;
+    color: rgb(0 0 0 / 80%);
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+}

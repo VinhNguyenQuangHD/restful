@@ -1,0 +1,91 @@
+﻿@model FoodDA.Models.SanPham
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+        .remove-bg-child {
+            background-color: rgba(255, 255, 255, 0) !important;
+        }
+
+        .remove-bg-child * {
+            background-color: rgba(255, 255, 255, 0) !important;
+        }
+
+        .remove-bg-child > * {
+            background-color: rgba(255, 255, 255, 0) !important;
+        }
+
+</style>
+
+<div>
+    <hr />
+    <h2 style="color: #009432;" ,"font-weight:bold">Chi Tiết Sản Phẩm</h2>
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Loại Sản Phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSP.TenLoaiSp)
+        </dd>
+
+        <dt>
+            Tên Sản Phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            Số Lượng Tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ton)
+        </dd>
+
+        <dt>
+            Mô Tả Sản Phẩm:
+        </dt>
+
+        <dd>
+            <div class="remove-bg-child" style="background-color: rgba(0, 0, 0, 0)">
+                @Html.Raw(Model.MoTa)
+            </div>
+        </dd>
+
+        <dt>
+            Hình Ảnh:
+        </dt>
+
+        <dd>
+            <img src="~/IMG/IMGSamPham/@Model.HinhAnh1" width="150" height="100" />
+        </dd>
+
+        <dt>
+            Hình Ảnh:
+        </dt>
+
+        <dd>
+            <img src="~/IMG/IMGSamPham/@Model.HinhAnh2" width="150" height="100" />
+
+        </dd>
+
+        <dt>
+            Giá Sản Phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh Sửa", "SuaSanPham", new { id = Model.IdSanPham }) |
+    @Html.ActionLink("Trờ Về", "SanPhamsPartial")
+</p>

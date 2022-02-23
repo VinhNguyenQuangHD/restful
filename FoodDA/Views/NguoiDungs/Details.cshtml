@@ -1,0 +1,62 @@
+﻿@using FoodDA.Models
+@model List<NguoiDung>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <hr />
+    <h2 style="text-align: center; color: #009432;" ,"font-weight:bold">Chi Tiết Tài Khoản Admin</h2>
+    @foreach (var item in Model)
+    {
+<dl class="dl-horizontal">
+    <dt>
+        Tên Người Dùng
+    </dt>
+
+    <dd>
+        @item.TenND
+    </dd>
+
+    <dt>
+        Số Điện Thoại
+    </dt>
+
+    <dd>
+        @item.Sdt
+    </dd>
+
+    <dt>
+        Địa Chỉ
+    </dt>
+
+    <dd>
+        @item.DiaChi
+    </dd>
+
+    <dt>
+        User Name
+    </dt>
+
+    <dd>
+        @item.UserName
+    </dd>
+
+    <dt>
+        Hình Ảnh
+    </dt>
+    <div class="image__admin">
+    <img src="~/IMG/HinhAdmin/z2846161425608_dd3f76084ad7909516c67a6603ec6fb5-removebg-preview-removebg-preview.png" />
+    </div>
+</dl>
+    }
+</div>
+<style>
+    img {
+        height: 150px;
+        width: 150px;
+    }
+</style>
+

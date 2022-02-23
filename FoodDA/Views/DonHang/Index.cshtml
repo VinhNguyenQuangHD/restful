@@ -1,0 +1,86 @@
+﻿@using FoodDA.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<FoodDA.Models.HoaDon>
+
+@helper truncate(string input, int length)
+{
+    if (input.Length <= length)
+    {
+        @input;
+    }
+    else
+    {
+        @input.Substring(0, length)@:...
+    }
+}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    table tr th {
+        border: 2px solid black !important;
+    }
+
+    table tr td {
+        border: 2px solid black !important;
+    }
+</style>
+@if (Session["idQuyen"].ToString() == "1")
+{
+    <p>
+        @Html.ActionLink("Thêm Mới Bài Viết", "Create")
+    </p>
+    <h2 style="text-align: center; color : #ED4C67; font-weight:bold">Thông Tin Đơn Hàng</h2>
+
+    <table class="table" border="1">
+
+        <tr>
+            <th style="color: #192a56; width:150px">Người Mua Hàng</th>
+            <th style="color: #192a56; width:150px">Ngày Mua Hàng </th>
+            <th style="color: #192a56; width:300px">Dia Chỉ </th>
+            <th style="color: #192a56; width:160px">Tổng Tiền </th>
+            <th style="color: #192a56; width:170px">Chi Tiết, Xuất Excel</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NguoiDung.TenND)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ngay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NguoiDung.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TongTien)
+                </td>
+
+                <td>
+                    <button style="color: #c56cf0; background: rgb(255, 204, 204,0.5) " type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                        @Html.ActionLink("Chi Tiết", "ChiTietHoaDon", new { id = item.IdHoaDon })
+                    </button>
+                    <button style="color: #20bf6b; background: rgb(255, 204, 204,0.5) " type="button" class="btn btn-default btn-sm">
+                        <span class="fa fa-file-excel-o"></span>
+                        @Html.ActionLink("Xuất Excel", "Export", "HoaDons", new { id = item.IdHoaDon }, null)
+                    </button>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="MenuTrang" style="display:inline">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", "DonHang", new { page = page }))
+    </div>
+}
+else if (Session["idQuyen"].ToString() != "1")
+{
+    <h1>
+        BẠN KHÔNG THỂ VÀO PHẦN NÀY
+    </h1>
+}

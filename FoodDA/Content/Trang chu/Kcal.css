@@ -1,0 +1,139 @@
+﻿.Kcal {
+    display:none;
+    z-index: 1;
+    position: absolute;
+    top: 230px;
+    height: 260px;
+    width: 100%;
+}
+
+.Kcal__border {
+    border-radius: 21px;
+    height: 260px;
+    width: 35%;
+    margin-left: 34%;
+    background: #e3e2e0cc;
+}
+
+.Kcal__border__1 {
+    margin-left: 55px;
+    margin-top: 0px;
+    padding-top: 28px;
+}
+
+.input__kcal {
+    font-family: monospace;
+    margin-left: 0px;
+    height: 22px;
+    text-align: left;
+    margin-bottom: 45px;
+    /* background: #bd595900; */
+    border: #22486a;
+    border-radius: 5px;
+    width: 72%;
+}
+.Tieude__kcal {
+    text-align: center;
+    padding-top: 18px;
+    color: chocolate;
+    font-size: 20px;
+    font-family: monospace;
+}
+input.input__kcal.input__cannang {
+    margin-left: 7px;
+}
+
+input.btn__kcal {
+    border-radius: 7px;
+    height: 30px;
+    width: 32%;
+    border-width: 0px;
+    cursor: pointer;
+    background: repeating-linear-gradient(45deg, #4e484863, transparent 100px);
+    margin-left: 202px;
+}
+.List__Loai__SP__partial.margin__border__TimKiem__BMI {
+    MARGIN-LEFT: 57PX;
+    FONT-FAMILY: MONOSPACE;
+    FONT-SIZE: 15PX;
+    LINE-HEIGHT: 22PX;
+}
+
+.border__TimKiem__BMI {
+    CURSOR: POINTER;
+    FONT-SIZE: 13PX;
+    COLOR: #7285a1;
+    WIDTH: 30PX;
+}
+
+.TimKiem__kcal {
+    WIDTH: 30PX;
+    FONT-SIZE: 13PX;
+    COLOR: #7285a1;
+    CURSOR: POINTER;
+}
+.Kcal.Kcal__SHOW {
+    DISPLAY: flex;
+    animation-delay:0.5s;
+    animation:Kcal__SHOW 1s forwards;
+    position:fixed;
+}
+@keyframes Kcal__SHOW{
+    0%{
+        opacity:0;
+        visibility:hidden;
+        transform:scale(0);
+    }
+    100% {
+        z-index:3;
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}
+.shadow__first {
+    height: 100%;
+    width: 100%;
+    /* background: beige; */
+    /* position: fixed; */
+    /* z-index: 1; */
+}
+    .shadow__first.shadow__first__show {
+        transition:1s;
+        background: #000000bf;
+        position: fixed;
+        animation:shadow__first__show 1s forwards;
+    }
+@keyframes shadow__first__show{
+
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        z-index: 2;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+.error__height.error__chieucao {
+    position: relative;
+    left: 79px;
+    top: -40px;
+    font-size: 14px;
+    color: red;
+}
+
+.error__weight.error__cannang {
+    top: -41px;
+    position: relative;
+    left: 80px;
+    font-size: 14px;
+    color: red;
+}
+i.fas.fa-exclamation {
+    padding-right: 4px;
+}

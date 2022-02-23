@@ -1,0 +1,150 @@
+﻿body {
+}
+
+img {
+    width: 222px;
+    height: 200px;
+}
+
+header#partial__chude {
+    /* left: -13px; */
+    display: flex;
+}
+
+.Congthuc {
+    margin-left: 70px;
+    position: relative;
+    margin-top: 102px;
+}
+
+.border {
+    z-index: 2;
+    border: solid 1px;
+    /*border-style: 1px;*/
+    height: 90px;
+    top: 51px;
+    position: absolute;
+    width: 125px;
+    left: 49px;
+    color: #863f3f;
+    opacity: 0;
+}
+
+.tinto:hover a {
+    transition: 1s;
+    opacity: 1;
+    visibility: visible;
+}
+
+.tinto:hover .chuto {
+    top: 46px;
+    transition: 0.5s;
+}
+
+.tinto:hover .chunho {
+    opacity: 1;
+    transform: scale3d(1.1);
+    transition: 1s;
+}
+
+.tinto:hover .border {
+    opacity: 1;
+    transform: scale(1.5);
+    transition: 1s;
+}
+
+.tinto:hover .xam {
+    opacity: 0;
+    transition: 2s;
+}
+
+.tinto:hover .gadient {
+    opacity: 1;
+}
+
+.color__first {
+    cursor: pointer;
+    width: 223px;
+    height: 200px;
+    position: absolute;
+    /* color: red; */
+    z-index: 3;
+    background: linear-gradient(143deg, #c19e9e, transparent);
+}
+
+    .color__first:hover {
+        z-index: 3;
+        transition: 1s;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+color__first:hover .border {
+    transition: 1s;
+    transform: skewX();
+}
+
+.img2 {
+    top: 0px;
+    position: absolute;
+}
+
+.img3 {
+    top: 0px;
+    position: absolute;
+}
+
+.img1 {
+}
+
+.tenbaiviet {
+    position: absolute;
+    z-index: 4;
+    width: 157px;
+    top: 55px;
+    left: 34px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: x-large;
+    color: rgb(0 0 0 / 80%);
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.xam {
+    background-color: rgba(157,145,145,0.6);
+    height: 201px;
+    width: 223px;
+    /* top: 0px; */
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.border__all {
+    transition: 1s;
+    background: linear-gradient(rgb(161 100 100 / 0,67));
+    background-image: url('../../IMG/IMGtrngchu/6872af27c6d91f16d651fe2b747bced1.jpg');
+    background-repeat: no-repeat;
+    border-left: transparent;
+    /* border-style: solid; */
+    width: 100%;
+    height: 300px;
+    background-origin: border-box;
+    position: absolute;
+    top: 550px;
+    /* border-right: transparent; */
+    background-size: cover;
+}
+
+.TIEUDE {
+    z-index: 2;
+    font-size: 30px;
+    font-family: monospace;
+    position: absolute;
+    color: #130a42b8;
+    margin-top: 57px;
+    margin-left: 507px;
+}

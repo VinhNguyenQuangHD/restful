@@ -1,0 +1,109 @@
+﻿@using FoodDA.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Cmt>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/CommentND.css" rel="stylesheet" />
+    <script src="~/Content/JavaScript/Comment.js"></script>
+    <link href="~/Content/Trang chu/pagelistcm.css" rel="stylesheet" />
+
+</head>
+<div class="NoiDung__comment__all">
+    <h2>Bình luận @ViewBag.ThongBaoCMT</h2>
+    @foreach (var item in Model)
+    {
+        <div class="comment">
+            <div class="header__comment">
+                <div class="header__comment__nameUser">
+                    Tên người dùng: @Html.DisplayFor(modelItem => item.NguoiDung.TenND)
+                </div>
+                <div class="header__comment__date">
+                    @Html.DisplayFor(modelItem => item.Ngay)
+                </div>
+            </div>
+            <div class="NoiDung__comment">
+                @Html.DisplayFor(modelItem => item.NoiDung)
+            </div>
+            <div class="rating__comment">
+                @for (int i = 0; i < item.rating; i++)
+                {
+                    <i class="fas fa-star"></i>
+                }
+            </div>
+        </div>
+    }
+</div>
+<div class="MenuTrang" style="display:inline">
+    Trang @(Model.PageCount<Model.PageNumber ? 0:Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("XemChiTietBaiViet", "BaiViets", new { page = page, id = ViewBag.idbaivietcm }))
+</div>
+<div class="Nguoidung__dangnnhap">
+    @if (Session["tennguoidung"] == null)
+    {
+        <a class="aaaa" href="@Url.Action("Index","Home")">Vui lòng đăng nhập</a>
+    }
+    else
+    {
+        <div class="Comment__user">
+            @using (Html.BeginForm("SendReview", "BaiViets", FormMethod.Post))
+            {
+                <input type="text" name="NoiDung" id="txtArticleComment" />
+                <div onmouseover="CreateSelected()" class="clm">
+                    <span id="span1" onmouseout="CreateOut(1)" onmouseover="CreateOver(1)" onclick="CreateClick(1)" class="far fa-star"></span>
+                    <span id="span2" onmouseout="CreateOut(2)" onmouseover="CreateOver(2)" onclick="CreateClick(2)" class="far fa-star"></span>
+                    <span id="span3" onmouseout="CreateOut(3)" onmouseover="CreateOver(3)" onclick="CreateClick(3)" class="far fa-star"></span>
+                    <span id="span4" onmouseout="CreateOut(4)" onmouseover="CreateOver(4)" onclick="CreateClick(4)" class="far fa-star"></span>
+                    <span id="span5" onmouseout="CreateOut(5)" onmouseover="CreateOver(5)" onclick="CreateClick(5)" class="far fa-star"></span>
+                </div>
+                <input type="hidden" id="lblRating" name="rating" value="0" />
+                <input type="submit" class="btn__comment" name="saveComment" value="Bình luận" />
+
+            }
+        </div>
+    }
+</div>
+<style>
+    .Nguoidung__dangnnhap {
+        margin-left: 49px;
+        /* left: 327px; */
+        position: relative;
+        width: 380px;
+        margin-bottom: 22px;
+    }
+
+    a.aaaa {
+        font-size: 16px;
+        color: antiquewhite;
+    }
+
+    .Comment__user {
+        background: #999999;
+        height: 136px;
+        border-radius: 15px;
+    }
+
+    form {
+        margin-left: 18px;
+        margin-left: 31px;
+    }
+
+    input#txtArticleComment {
+        /* background: transparent; */
+        /* color: bisque; */
+        margin-top: 20px;
+        width: 309px;
+        height: 24px;
+        margin-bottom: 14px;
+        border-radius: 7px;
+        border-style: none;
+    }
+
+    input.btn__comment {
+        margin-top: 15px;
+    }
+
+    div.clm {
+        font-size: 17px;
+        color: antiquewhite;
+    }
+</style>

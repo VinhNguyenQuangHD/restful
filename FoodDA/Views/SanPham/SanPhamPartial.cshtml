@@ -1,0 +1,29 @@
+﻿@using FoodDA.Models;
+@model List<SanPham>
+
+<head>
+    <link href="~/Content/Trang chu/SanPhamPartial.css" rel="stylesheet" />
+</head>
+<div class="TIEUDE__MONAN">CÁC MÓN ĂN VẶT</div>
+<div class="border__all__sanoham"></div>
+<header id="partial__sanpham">
+    @foreach (var item in Model)
+    {
+        <div class="Congthuc__sanpham">
+            <div class="tinto__sanpham">
+                <div class="xam__sanpham"></div>
+                <div class="border__sanpham"></div>
+                <a class="tensanpham" href="@Url.Action("XemChiTietSanPham","SanPham",new {@IdSanPham=item.IdSanPham })">@item.TenSP</a>
+                <div class="img1__sanpham">
+                    <img alt="@item.HinhAnh1" src="~/IMG/IMGSamPham/@item.HinhAnh1" />
+                </div>
+                <div class="img2__sanpham">
+                    <img alt="@item.HinhAnh2" src="~/IMG/IMGSamPham/@item.HinhAnh2" />
+                </div>
+                <div class="sanpham__price">
+                    Price: @item.Gia VND
+                </div>
+            </div>
+        </div>
+    }
+</header>

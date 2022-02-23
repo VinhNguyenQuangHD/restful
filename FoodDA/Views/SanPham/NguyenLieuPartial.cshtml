@@ -1,0 +1,34 @@
+﻿@using FoodDA.Models;
+@model List<SanPham>
+
+<head>
+    <link href="~/Content/Trang chu/NguyenLieuPartial.css" rel="stylesheet" />
+</head>
+<div class="TIEUDE__Nguyenlieu">DỤNG CỤ LÀM BẾP</div>
+<div class="border__all__nguyenlieu"></div>
+<header id="partial__nguyenlieu">
+    @foreach (var item in Model)
+    {
+        <div class="Congthuc__sanpham">
+            <div class="tinto__nguyenlieu">
+                <div class="xam__sanpham"></div>
+                <div class="border__sanpham"></div>
+                <a class="tennguyenlieu" href="@Url.Action("XemChiTietSanPham","SanPham",new {@IdSanPham=item.IdSanPham})">@item.TenSP</a>
+                <div class="img1__nguyenlieu">
+                    <img alt="@item.HinhAnh1" src="~/IMG/IMGSamPham/@item.HinhAnh1" />
+                </div>
+                <div class="img2__nguyenlieu">
+                    <img alt="@item.HinhAnh2" src="~/IMG/IMGSamPham/@item.HinhAnh2" />
+                </div>
+                <div class="nguyenlieu__price">
+                    Price: @item.Gia VND
+                </div>
+            </div>
+        </div>
+    }
+</header>
+<style>
+    a.Search {
+        color: #8a2be29e;
+    }
+</style>

@@ -1,0 +1,34 @@
+﻿
+@model FoodDA.Models.NguoiDung
+
+@{
+    ViewBag.Title = "Login";
+
+}
+<div id="Login">
+    @using (Html.BeginForm("Login", "NguoiDungs", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h1>@ViewBag.thongbao</h1>
+            <div class="form-group--login">
+                <div class="NoiDung__dangnhap">User name:</div>
+                <div class="col-md-input-login">
+                    @Html.EditorFor(model => model.UserName)
+                    <div class="error__message__username">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group--login">
+                <div class="NoiDung__dangnhap">PassWord:</div>
+                <div class="col-md-input-login">
+                    @Html.PasswordFor(model => model.PassWord)
+                    <div class="error__message__password"></div>
+                </div>
+            </div>
+            <div class="form-group--login"><input type="submit" value="Đăng nhập" class="btn btnlogin" onclick="return validator()" /></div>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.14\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.14\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3E9E47B-43B6-4EF5-BE98-B8510A7F8051}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoodDA</RootNamespace>
+    <AssemblyName>FoodDA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44326</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.1.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.1.1\lib\net20\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Extensions, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Extensions.2.0.1\lib\net45\EPPlus.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaiVietsController.cs" />
+    <Compile Include="Controllers\ChiTietHoaDonsController.cs" />
+    <Compile Include="Controllers\ChuDesController.cs" />
+    <Compile Include="Controllers\CmtsController.cs" />
+    <Compile Include="Controllers\CongThucTheoChuDeController.cs" />
+    <Compile Include="Controllers\DoanhThuController.cs" />
+    <Compile Include="Controllers\DonHangController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HoaDonsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaiSPsController.cs" />
+    <Compile Include="Controllers\NguoiDungsController.cs" />
+    <Compile Include="Controllers\QuyensController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\ThongKeController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
+    <Compile Include="Controllers\TKController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaiViet.cs" />
+    <Compile Include="Models\ChiTietHoaDon.cs" />
+    <Compile Include="Models\ChuDe.cs" />
+    <Compile Include="Models\Cmt.cs" />
+    <Compile Include="Models\FoodEntities.cs" />
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\HoaDon.cs" />
+    <Compile Include="Models\LoaiSP.cs" />
+    <Compile Include="Models\NguoiDung.cs" />
+    <Compile Include="Models\PhanLoaiDinhDuong.cs" />
+    <Compile Include="Models\PostStatic.cs" />
+    <Compile Include="Models\Quyen.cs" />
+    <Compile Include="Models\SanPham.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-social.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\JavaScript\BMI.js" />
+    <Content Include="Content\JavaScript\Calo.js" />
+    <Content Include="Content\JavaScript\ChangedPassword.js" />
+    <Content Include="Content\JavaScript\Comment.js" />
+    <Content Include="Content\js\Chart.bundle.js" />
+    <Content Include="Content\css\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Content\css\dataTables\dataTables.responsive.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\metisMenu.min.css" />
+    <Content Include="Content\css\morris.css" />
+    <Content Include="Content\css\startmin.css" />
+    <Content Include="Content\css\timeline.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\JavaScript\DangKy.js" />
+    <Content Include="Content\JavaScript\DangNhap.js" />
+    <Content Include="Content\JavaScript\GioHang.js" />
+    <Content Include="Content\JavaScript\jquery-3.2.1.js" />
+    <Content Include="Content\JQtrangchu\Trangchu.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Content\js\dataTables\jquery.dataTables.min.js" />
+    <Content Include="Content\js\flot-data.js" />
+    <Content Include="Content\js\flot\excanvas.min.js" />
+    <Content Include="Content\js\flot\jquery.colorhelpers.js" />
+    <Content Include="Content\js\flot\jquery.flot.canvas.js" />
+    <Content Include="Content\js\flot\jquery.flot.categories.js" />
+    <Content Include="Content\js\flot\jquery.flot.crosshair.js" />
+    <Content Include="Content\js\flot\jquery.flot.errorbars.js" />
+    <Content Include="Content\js\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Content\js\flot\jquery.flot.image.js" />
+    <Content Include="Content\js\flot\jquery.flot.js" />
+    <Content Include="Content\js\flot\jquery.flot.navigate.js" />
+    <Content Include="Content\js\flot\jquery.flot.pie.js" />
+    <Content Include="Content\js\flot\jquery.flot.resize.js" />
+    <Content Include="Content\js\flot\jquery.flot.selection.js" />
+    <Content Include="Content\js\flot\jquery.flot.stack.js" />
+    <Content Include="Content\js\flot\jquery.flot.symbol.js" />
+    <Content Include="Content\js\flot\jquery.flot.threshold.js" />
+    <Content Include="Content\js\flot\jquery.flot.time.js" />
+    <Content Include="Content\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\metisMenu.min.js" />
+    <Content Include="Content\js\morris-data.js" />
+    <Content Include="Content\js\morris.min.js" />
+    <Content Include="Content\js\quill.js" />
+    <Content Include="Content\js\raphael.min.js" />
+    <Content Include="Content\js\startmin.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Trang chu\CAlo.css" />
+    <Content Include="Content\Trang chu\ChiTietBaiViet.css" />
+    <Content Include="Content\Trang chu\ChuDeChienPartial.css" />
+    <Content Include="Content\Trang chu\ChuDeNuongPartial.css" />
+    <Content Include="Content\Trang chu\ChuDePartial.css" />
+    <Content Include="Content\Trang chu\ChuDeSoupPartial.css" />
+    <Content Include="Content\Trang chu\ChuDeXaoPartial.css" />
+    <Content Include="Content\Trang chu\CommentND.css" />
+    <Content Include="Content\Trang chu\DangKyPartial.css" />
+    <Content Include="Content\Trang chu\ERROR.css" />
+    <Content Include="Content\Trang chu\ForgotPassword.css" />
+    <Content Include="Content\Trang chu\GioHang.css" />
+    <Content Include="Content\Trang chu\Kcal.css" />
+    <Content Include="Content\Trang chu\ListBaiViet.css" />
+    <Content Include="Content\Trang chu\ListLoaiSanPham.css" />
+    <Content Include="Content\Trang chu\ListSanPham.css" />
+    <Content Include="Content\Trang chu\NguyenLieuPartial.css" />
+    <Content Include="Content\Trang chu\PageList.css" />
+    <Content Include="Content\Trang chu\pagelistcm.css" />
+    <Content Include="Content\Trang chu\SanPhamChiTiet.css" />
+    <Content Include="Content\Trang chu\SanPhamPartial.css" />
+    <Content Include="Content\Trang chu\SuaGioHang.css" />
+    <Content Include="Content\Trang chu\TrangChu.css" />
+    <Content Include="Controllers\skins\content\CUSTOM\content.css" />
+    <Content Include="Controllers\skins\content\CUSTOM\content.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="IMG\HinhAdmin\z2846161425608_dd3f76084ad7909516c67a6603ec6fb5-removebg-preview-removebg-preview.png" />
+    <Content Include="IMG\HinhAdmin\z3005536256874_ac6803aeb258f9f186a512d5ef9894f7.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách chế biến cơm rang trứng xúc xích phô mai cho bữa sáng_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách chế biến cơm rang trứng xúc xích phô mai cho bữa sáng_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách chế biến cơm rang trứng xúc xích phô mai cho bữa sáng_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm bò xào nấm đông cô và bông cải xanh bổ dưỡng_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm bò xào nấm đông cô và bông cải xanh bổ dưỡng_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm bò xào nấm đông cô và bông cải xanh bổ dưỡng_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm canh kim chi Hàn Quốc hải sản đậu phụ mèm_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm canh kim chi Hàn Quốc hải sản đậu phụ mèm_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm canh kim chi Hàn Quốc hải sản đậu phụ mèm_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cánh gà chiên nước mắm mật ong cho bữa cơm ngon đủ chất_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cánh gà chiên nước mắm mật ong cho bữa cơm ngon đủ chất_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cánh gà chiên nước mắm mật ong cho bữa cơm ngon đủ chất_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cơm cuộn gạo lứt rong biển_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cơm cuộn gạo lứt rong biển_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cơm cuộn gạo lứt rong biển_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cơm cuộn rong biển phô mai_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cơm cuộn rong biển phô mai_HA2.png" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cơm cuộn rong biển phô mai_HA3.png" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cơm rang cuộn trứng Hàn Quốc_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cơm rang cuộn trứng Hàn Quốc_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm cơm rang cuộn trứng Hàn Quốc_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm gà chiên nước mắm bơ tỏi thơm giòn ăn hoài không thôi_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm gà chiên nước mắm bơ tỏi thơm giòn ăn hoài không thôi_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm gà chiên nước mắm bơ tỏi thơm giòn ăn hoài không thôi_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm gà rán nước mắm me chua ngọt nguyên con_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm gà rán nước mắm me chua ngọt nguyên con_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm gà rán nước mắm me chua ngọt nguyên con_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm kimbap chiên xù lạ mắt_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm kimbap chiên xù lạ mắt_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm kimbap chiên xù lạ mắt_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm món thịt bò xào nấm hải sản và ớt chuông ngon_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm món thịt bò xào nấm hải sản và ớt chuông ngon_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm món thịt bò xào nấm hải sản và ớt chuông ngon_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm món thịt bò xào nấm kim châm ngon, không bị dai_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm món thịt bò xào nấm kim châm ngon, không bị dai_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm món thịt bò xào nấm kim châm ngon, không bị dai_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm mề gà rán nước mắm đơn giản lạ miệng_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm mề gà rán nước mắm đơn giản lạ miệng_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm mề gà rán nước mắm đơn giản lạ miệng_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm ochazuke Nhật Bản %28cơm chan trà xanh%29 ngon và mới lạ_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm ochazuke Nhật Bản %28cơm chan trà xanh%29 ngon và mới lạ_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm ochazuke Nhật Bản %28cơm chan trà xanh%29 ngon và mới lạ_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm sushi trứng cuộn cá hồi kiểu Nhật_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm sushi trứng cuộn cá hồi kiểu Nhật_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm sườn xào chua ngọt miền Bắc với giấm, tương ớt_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm sườn xào chua ngọt miền Bắc với giấm, tương ớt_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm sườn xào chua ngọt miền Bắc với giấm, tương ớt_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm sụn gà chiên nước mắm đường mặn ngọt giòn rụm, không bị khô_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm sụn gà chiên nước mắm đường mặn ngọt giòn rụm, không bị khô_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm sụn gà chiên nước mắm đường mặn ngọt giòn rụm, không bị khô_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm thịt bò xào nấm hương và đậu Hà Lan ngon tuyệt_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm thịt bò xào nấm hương và đậu Hà Lan ngon tuyệt_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm thịt bò xào nấm hương và đậu Hà Lan ngon tuyệt_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm đùi gà chiên nước mắm sả ớt bằng nồi chiên không dầu_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm đùi gà chiên nước mắm sả ớt bằng nồi chiên không dầu_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách làm đùi gà chiên nước mắm sả ớt bằng nồi chiên không dầu_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách nấu canh kim chi Hàn Quốc từ đậu phụ truyền thống_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách nấu canh kim chi Hàn Quốc từ đậu phụ truyền thống_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách nấu canh kim chi Hàn Quốc từ đậu phụ truyền thống_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách nấu canh kim chi Hàn Quốc với thịt heo_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách nấu canh kim chi Hàn Quốc với thịt heo_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách nấu canh kim chi Hàn Quốc với thịt heo_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\cách nấu súp hải sản thập cẩm làm món khai vị_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\cách nấu súp hải sản thập cẩm làm món khai vị_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\cách nấu súp hải sản thập cẩm làm món khai vị_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách nấu súp thập cẩm rau củ chay đơn giản_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách nấu súp thập cẩm rau củ chay đơn giản_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Cách nấu súp thập cẩm rau củ chay đơn giản_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Hướng dẫn cách ướp mực nang 1 nắng nướng sả sa tế_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Hướng dẫn cách ướp mực nang 1 nắng nướng sả sa tế_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Hướng dẫn cách ướp mực nang 1 nắng nướng sả sa tế_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Hướng dẫn nấu súp gà thập cẩm rau củ_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Hướng dẫn nấu súp gà thập cẩm rau củ_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Hướng dẫn nấu súp gà thập cẩm rau củ_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Khô bò miếng loại 1 siêu ngon_HA1.jfif" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng muối ớt_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng muối ớt_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng muối ớt_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng ngũ vị_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng ngũ vị_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng ngũ vị_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng sa tế_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng sa tế_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng sa tế_HA3.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món chân gà rút xương nướng sa vi_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món lươn nướng Nhật Unagi Kabayaki_HA1.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món lươn nướng Nhật Unagi Kabayaki_HA2.jpg" />
+    <Content Include="IMG\IMGcongthuc\Món lươn nướng Nhật Unagi Kabayaki_HA3.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ 3 Dụng Cụ Gắp Đồ Nóng Thông Minh_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ 3 Dụng Cụ Gắp Đồ Nóng Thông Minh_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ dụng bếp silicon chịu nhiệt_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ dụng bếp silicon chịu nhiệt_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ dụng cụ 6 món gắp đồ nóng_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ dụng cụ 6 món gắp đồ nóng_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ Dụng Cụ Nhà Bếp Chống Dính_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ Dụng Cụ Nhà Bếp Chống Dính_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ Dụng Cụ Nhà Bếp Lock&amp;Lock_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Bộ Dụng Cụ Nhà Bếp Lock&amp;Lock_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\CHÀ BÔNG GÀ CHẤT LƯỢNG THƯƠNG HIỆU SK FOOD_Ha1.jpg" />
+    <Content Include="IMG\IMGSamPham\CHÀ BÔNG GÀ CHẤT LƯỢNG THƯƠNG HIỆU SK FOOD_Ha2.jpg" />
+    <Content Include="IMG\IMGSamPham\chà bông heo loại thượng hạng_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\chà bông heo loại thượng hạng_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\COMBO 2 HŨ THỊT KHÔ BÒ DẠNG SỢI_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\COMBO 2 HŨ THỊT KHÔ BÒ DẠNG SỢI_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Combo 3 Hũ Dưa Món 450g_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Combo 3 Hũ Dưa Món 450g_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Câu Kỷ Tử DK Harvest_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Câu Kỷ Tử DK Harvest_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Cơm cháy chà bông vị phô mai_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Cơm cháy chà bông vị phô mai_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Cơm Cháy Lắc Khô Gà Lá Chanh_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Cơm Cháy Lắc Khô Gà Lá Chanh_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Cơm Cháy TeTeFood_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Cơm Cháy TeTeFood_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Dụng cụ chắn bếp chống dầu_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Dụng cụ chắn bếp chống dầu_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Dụng Cụ Đựng Nước Rửa Chén Và Miếng Bọt Biển_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Dụng Cụ Đựng Nước Rửa Chén Và Miếng Bọt Biển_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Hạt Bí Xanh Rang Mộc_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Hạt Bí Xanh Rang Mộc_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Khay chia ngăn kéo tủ bếp_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Khay chia ngăn kéo tủ bếp_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Khô bò miếng loại 1 siêu ngon_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Khô bò miếng loại 1 siêu ngon_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Khô bò viên đặc biệt loại ngon_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Khô bò viên đặc biệt loại ngon_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Kẹp treo đồ, treo chổi, dụng cụ nhà bếp đa năng_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Kẹp treo đồ, treo chổi, dụng cụ nhà bếp đa năng_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\Kệ chén bát đĩa 2 tầng INOX 304_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\Kệ chén bát đĩa 2 tầng INOX 304_HA2.jpg" />
+    <Content Include="IMG\IMGSamPham\tho_va_doi.jpg" />
+    <Content Include="IMG\IMGSamPham\THỊT KHÔ BÒ DẠNG QUE THƯỢNG HẠNG TÂN LỘC PHÁT_HA1.jpg" />
+    <Content Include="IMG\IMGSamPham\THỊT KHÔ BÒ DẠNG QUE THƯỢNG HẠNG TÂN LỘC PHÁT_HA2.jpg" />
+    <Content Include="IMG\IMGtrngchu\3-cach-lam-mon-muc-xao-voi-rau-cu-gion-ngot-ai-cung-lam-duoc-24-760x367.jpg" />
+    <Content Include="IMG\IMGtrngchu\6872af27c6d91f16d651fe2b747bced1.jpg" />
+    <Content Include="IMG\IMGtrngchu\cac-loai-gia-vi-nao-thuong-dung-de-tam-uop-do-nuong-1-min.jpg" />
+    <Content Include="IMG\IMGtrngchu\Chrome-features-kitchen-all-black-panelling-concrete-floor.jpg" />
+    <Content Include="IMG\IMGtrngchu\congratulation.png" />
+    <Content Include="IMG\IMGtrngchu\error.png" />
+    <Content Include="IMG\IMGtrngchu\gazpacho-2-15375254691681495783789.jpg" />
+    <Content Include="IMG\IMGtrngchu\GWSFried-Eggplant-4.jpg" />
+    <Content Include="IMG\IMGtrngchu\kitchenback.png" />
+    <Content Include="IMG\IMGtrngchu\mon1.png" />
+    <Content Include="IMG\IMGtrngchu\mon2.png" />
+    <Content Include="IMG\IMGtrngchu\mon3.png" />
+    <Content Include="IMG\IMGtrngchu\mon4.png" />
+    <Content Include="IMG\IMGtrngchu\panthermedia_b63432407_5298x3672.jpg" />
+    <Content Include="IMG\IMGtrngchu\png-transparent-cooking-chef-s-hat-restaurant-chef-professional-cooking-knife-kitchen-utensils-icon-logo-removebg-preview.png" />
+    <Content Include="IMG\TT-TT.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\css\quill.snow.css" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+    <None Include="Scripts\jquery-3.4.1-vsdoc.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\BaiViets\Create.cshtml" />
+    <Content Include="Views\BaiViets\Delete.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Create.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Delete.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Details.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Edit.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Index.cshtml" />
+    <Content Include="Views\ChuDes\Create.cshtml" />
+    <Content Include="Views\ChuDes\Delete.cshtml" />
+    <Content Include="Views\ChuDes\Details.cshtml" />
+    <Content Include="Views\ChuDes\Edit.cshtml" />
+    <Content Include="Views\ChuDes\Index.cshtml" />
+    <Content Include="Views\Cmts\Create.cshtml" />
+    <Content Include="Views\Cmts\Delete.cshtml" />
+    <Content Include="Views\Cmts\Details.cshtml" />
+    <Content Include="Views\Cmts\Edit.cshtml" />
+    <Content Include="Views\Cmts\Index.cshtml" />
+    <Content Include="Views\HoaDons\Create.cshtml" />
+    <Content Include="Views\HoaDons\Delete.cshtml" />
+    <Content Include="Views\HoaDons\Details.cshtml" />
+    <Content Include="Views\HoaDons\Edit.cshtml" />
+    <Content Include="Views\LoaiSPs\Create.cshtml" />
+    <Content Include="Views\LoaiSPs\Delete.cshtml" />
+    <Content Include="Views\LoaiSPs\Details.cshtml" />
+    <Content Include="Views\LoaiSPs\Edit.cshtml" />
+    <Content Include="Views\LoaiSPs\Index.cshtml" />
+    <Content Include="Views\Quyens\Create.cshtml" />
+    <Content Include="Views\Quyens\Index.cshtml" />
+    <Content Include="Views\SanPham\NguyenLieuPartial.cshtml" />
+    <Content Include="Views\SanPham\SanPhamPartial.cshtml" />
+    <Content Include="Views\BaiViets\XemChiTietBaiViet.cshtml" />
+    <Content Include="Views\SanPham\XemChiTietSanPham.cshtml" />
+    <Content Include="Views\NguoiDungs\Login.cshtml" />
+    <Content Include="Views\NguoiDungs\Indexs.cshtml" />
+    <Content Include="Views\NguoiDungs\Register.cshtml" />
+    <Content Include="Views\NguoiDungs\ErorrDangNhapThatBai.cshtml" />
+    <Content Include="Views\NguoiDungs\ErorrDangKyThatBai.cshtml" />
+    <Content Include="Views\NguoiDungs\ForgotPassword.cshtml" />
+    <Content Include="Views\BaiViets\ListBaiViet.cshtml" />
+    <Content Include="Views\SanPham\SanPhamList.cshtml" />
+    <Content Include="Views\SanPham\ListLoaiSanPham.cshtml" />
+    <Content Include="Views\BaiViets\ListBaiVietChuDe.cshtml" />
+    <Content Include="Views\SanPham\DungCuLamBepList.cshtml" />
+    <Content Include="Views\ChuDes\ListBaiVietTheoChuDe.cshtml" />
+    <Content Include="Views\LoaiSPs\ListBaiVietTheoLoaiSanPham.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\SuaGioHang.cshtml" />
+    <Content Include="Views\GioHang\ErorrCart.cshtml" />
+    <Content Include="Views\GioHang\ErrorDangNhap.cshtml" />
+    <Content Include="Views\GioHang\SucessDK.cshtml" />
+    <Content Include="Views\BaiViets\listBaiVietNguyenLieu.cshtml" />
+    <Content Include="Views\SanPham\SanPhamsPartial.cshtml" />
+    <Content Include="Views\SanPham\ThemMoiSanPham.cshtml" />
+    <Content Include="Views\SanPham\ChiTietSanPham.cshtml" />
+    <Content Include="Views\SanPham\SuaSanPham.cshtml" />
+    <Content Include="Views\BaiViets\Index.cshtml" />
+    <Content Include="Views\BaiViets\chitietbaiviet.cshtml" />
+    <Content Include="Views\DonHang\Index.cshtml" />
+    <Content Include="Views\NguoiDungs\Index.cshtml" />
+    <Content Include="Views\BaiViets\SuaBaiViet.cshtml" />
+    <Content Include="Views\DonHang\ChiTietHoaDon.cshtml" />
+    <Content Include="Views\NguoiDungs\Details.cshtml" />
+    <Content Include="Views\HoaDons\Index.cshtml" />
+    <Content Include="Views\ThongKe\SanPham.cshtml" />
+    <Content Include="Views\BaiViets\ListBaiVietKcal.cshtml" />
+    <Content Include="Views\BaiViets\listCalo.cshtml" />
+    <Content Include="Views\BaiViets\showComment.cshtml" />
+    <Content Include="Views\CongThucTheoChuDe\CongThucChudeChienPartial.cshtml" />
+    <Content Include="Views\CongThucTheoChuDe\CongThucChudeNuongPartial.cshtml" />
+    <Content Include="Views\CongThucTheoChuDe\CongThucChudePartial.cshtml" />
+    <Content Include="Views\CongThucTheoChuDe\CongThucChudeSoupPartial.cshtml" />
+    <Content Include="Views\CongThucTheoChuDe\CongThucChudeXaoPartial.cshtml" />
+    <Content Include="Views\TimKiem\KetQuaTimKiem.cshtml" />
+    <Content Include="Views\TimKiem\KetQuaTimKiemsampham.cshtml" />
+    <Content Include="Views\NguoiDungs\SuaTaiKhoan.cshtml" />
+    <Content Include="Views\ThongKe\BaiViet.cshtml" />
+    <Content Include="Views\ThongKe\index.cshtml" />
+    <Content Include="Views\TK\Index.cshtml" />
+    <Content Include="Views\NguoiDungs\ErorrChangedPassword.cshtml" />
+    <Content Include="Views\NguoiDungs\ChangePassword.cshtml" />
+    <Content Include="Views\NguoiDungs\HistoryPay.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Cmt\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59205</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44326/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.14\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.14\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.14\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.14\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.14\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.14\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,22 @@
+﻿ul.pagination {
+    display: inline-flex;
+    list-style: none;
+}
+.MenuTrang {
+    position:absolute;
+    left: 1049px;
+    width: 300px;
+}
+
+ul.pagination {
+    font-size: 20px;
+    /* left: 13px; */
+}
+
+li {
+    margin-left: 20px;
+}
+.pagination-container {
+    position: absolute;
+    width: 297px;
+}

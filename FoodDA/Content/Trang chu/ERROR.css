@@ -1,0 +1,33 @@
+﻿body {
+}
+
+.NoiDung__error {
+    background-color: #767171cc;
+    width: 100%;
+    HEIGHT: 288PX;
+    TOP: 71PX;
+    POSITION: relative;
+}
+
+img.ERROR__IMG {
+    background-size: cover;
+    margin-top: 52px;
+    HEIGHT: 77PX;
+    WIDTH: 116PX;
+    /* top: 10px; */
+    margin-left: 604px;
+}
+
+h2.DANGNHAPTHATBAI {
+    font-family: monospace;
+    margin-left: 567px;
+}
+
+h3.VUILONGKITRAMATKHAUTAIKHOAN {
+    margin-left: 497px;
+}
+.backtohome {
+    font-family: monospace;
+    margin-left: 588px;
+    font-size: 17px;
+}

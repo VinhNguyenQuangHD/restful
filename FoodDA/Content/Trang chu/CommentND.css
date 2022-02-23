@@ -1,0 +1,52 @@
+﻿body {
+}
+.NoiDung__comment__all {
+    width: 73%;
+    margin: 51px 0px 0px 46px;
+}
+
+.comment {
+    border-radius: 16px;
+    margin-bottom: 30px;
+    background-color: gray;
+    padding-left: 29px;
+    line-height: 28px;
+}
+
+.header__comment {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 53px;
+    padding-top: 17px;
+}
+
+.NoiDung__comment {
+    border-radius: 15px;
+    padding-top: 8px;
+    width: 74%;
+    background-color: #cfcacabf;
+    padding-left: 29px;
+    color: #f4f8ff;
+    font-family: monospace;
+}
+
+.rating__comment {
+    margin-top: 18px;
+    padding-bottom: 16px;
+}
+
+.header__comment__nameUser {
+    font-size: 16px;
+    padding-bottom: 8px;
+}
+i.fas.fa-star {
+    color: #eca5f1c7;
+}
+
+i.far.fa-star {
+    color: #83028575;
+}
+
+.rating__comment {
+    margin-left: 17px;
+}

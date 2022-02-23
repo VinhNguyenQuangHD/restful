@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FoodDA.Models.NguoiDung>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Thêm Mới Bài Viết", "Create")
+</p>
+<h2 style="text-align: center; color : #ED4C67; font-weight:bold">Thông Tin Người Dùng</h2>
+<style>
+    table tr th {
+        border: 2px solid black !important;
+    }
+
+    table tr td {
+        border: 2px solid black !important;
+    }
+</style>
+@if (Session["idQuyen"].ToString() == "1")
+{
+    <table class="table" border="1">
+        <tr>
+            <th style="color: #192a56; " ,"width:50px">Quyền Truy Cập</th>
+            <th style="color: #192a56; " ,"width:80px">Địa Chỉ Mail</th>
+            <th style="color: #192a56; " ,"width:100px">Số Điện Thoại</th>
+            <th style="color: #192a56; " ,"width:100px">Địa Chỉ</th>
+            <th style="color: #192a56; " ,"width:200px">User Name</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdQuyen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenND)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sdt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+}
+else if (Session["idQuyen"].ToString() != "1")
+{
+    <h1>
+        BẠN KHÔNG THỂ VÀO PHẦN NÀY
+    </h1>
+}

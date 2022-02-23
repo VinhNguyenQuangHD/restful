@@ -1,0 +1,177 @@
+﻿body {
+}
+
+.imgchien {
+    position: relative;
+    width: 222px;
+}
+
+.img2chien {
+    top: 0px;
+    width: 222px;
+    position: absolute;
+}
+
+.img3chien {
+    width: 222px;
+    top: 0px;
+    position: absolute;
+}
+
+header#partial__chude__monchien {
+    margin-top: 0px;
+    position: absolute;
+    top: 920px;
+}
+
+.Congthuc1 {
+    margin-left: 46px;
+    position: relative;
+    margin-top: 43px;
+}
+
+.border__all__monchien {
+    background-size: cover;
+    border-color: white;
+    width: 281px;
+    height: 1021px;
+    position: absolute;
+    border-style: solid;
+    left: 14px;
+    top: 898px;
+    background-image: url('../../IMG/IMGtrngchu/GWSFried-Eggplant-4.jpg');
+}
+
+.fried {
+    BACKGROUND-COLOR: TRANSPARENT;
+    POSITION: absolute;
+    COLOR: #fffffff2;
+    TOP: 918PX;
+    Z-INDEX: 1;
+    FONT-FAMILY: cursive;
+    LEFT: 78PX;
+    FONT-SIZE: 22PX;
+}
+
+.border1 {
+    left: 16px;
+    border: solid 1px;
+    position: absolute;
+    /* height: 133px; */
+    width: 185px;
+    top: 96px;
+    /* border-style: ridge; */
+    /* border: ridge 1px; */
+    /* border-style: dashed; */
+    opacity: 0;
+    z-index: 1;
+    border-color: #aa48b1d4;
+}
+
+.border1 {
+    left: 16px;
+    border: solid 1px;
+    position: absolute;
+    /* height: 133px; */
+    width: 185px;
+    top: 96px;
+    /* border-style: ridge; */
+    /* border: ridge 1px; */
+    /* border-style: dashed; */
+    opacity: 0;
+    z-index: 1;
+    border-color: #aa48b1d4;
+}
+
+.tinto1:hover .chuto {
+    top: 46px;
+    transition: 0.5s;
+}
+
+.tinto1:hover .chunho {
+    opacity: 1;
+    transform: scale3d(1.1);
+    transition: 1s;
+}
+
+.tinto1:hover .border1 {
+    opacity: 1;
+    transform: skewX(1.5);
+    transition: 1s;
+}
+
+.tinto1:hover .border2 {
+    opacity: 1;
+    transform: matrix(1.5);
+    transition: 1s;
+}
+
+.tinto1:hover .xam {
+    opacity: 0;
+    transition: 2s;
+}
+
+.tinto1:hover .gadient {
+    opacity: 0;
+}
+
+.tinto1:hover a {
+    transition: 1s;
+    opacity: 1;
+    visibility: visible;
+}
+
+.xam {
+    background-color: rgba(157,145,145,0.6);
+    height: 200px;
+    width: 222px;
+    /* top: 0px; */
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.gadient1 {
+    /* background: rgb(110 99 103 / 30%); */
+    /* background: linear-gradient(
+45deg
+, black, transparent); */
+    /* background: rgb(110 99 103 / 30%); */
+    /* background: linear-gradient( 
+45deg
+ , black, transparent); */
+    background: linear-gradient(rgb(8 3 3 / 30%),rgba(182,154,154,0.3));
+    position: absolute;
+    width: 222px;
+    height: 200px;
+    top: 0px;
+    opacity: 1;
+    z-index: 2;
+}
+
+.tinto1:hover .border1 {
+    opacity: 1;
+    transform: scale(1.5);
+    transition: 1s;
+}
+
+.tinto1:hover .border2 {
+    opacity: 1;
+    transform: scale(1.5);
+    transition: 1s;
+}
+.tenmonchien {
+    position: absolute;
+    z-index: 4;
+    width: 157px;
+    top: 55px;
+    left: 34px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: x-large;
+    color: rgb(0 0 0 / 80%);
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+}

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FoodDA.Models.Cmt>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BaiViet.TenBaiViet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NguoiDung.TenND)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaiViet.TenBaiViet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NguoiDung.TenND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdCmt }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdCmt }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCmt })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,114 @@
+﻿@using FoodDA.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<FoodDA.Models.SanPham>
+@{
+    ViewBag.Title = "SanPhamsPartial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Session["idQuyen"].ToString() == "1")
+{
+    @helper truncate(string input, int length)
+    {
+        if (input.Length <= length)
+        {
+            @input;
+        }
+        else
+        {
+            @input.Substring(0, length)@:...
+        }
+    }
+
+
+
+    <p>
+        @Html.ActionLink("Thêm Mới Sản Phẩm", "ThemMoiSanPham")
+    </p>
+    <style>
+        table tr th {
+            border: 2px solid black !important;
+        }
+
+        table tr td {
+            border: 2px solid black !important;
+        }
+    </style>
+    <h2 style="text-align: center; color : #ED4C67; font-weight:bold">Thông Tin Sản Phẩm</h2>
+    <p>
+        <button style="color: rgb(58, 227, 116); font-size:14px; background: rgb(255, 204, 204,0.5) " type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-plus"></span>
+            @Html.ActionLink("Thêm Mới Sản Phẩm", "ThemMoiSanPham")
+        </button>
+    </p>
+
+    <table class="table" border="1">
+        <tr>
+            <th style="color: #eb3b5a; width:150px">Loại Sản Phẩm</th>
+            <th style="color: #eb3b5a; width:180px">Tên Sản Phẩm </th>
+            <th style="text-align:center; color: #eb3b5a; width:220px">Mô Tả </th>
+            <th style="color: #eb3b5a; width:50px">Lượng Tồn </th>
+            <th style="color: #eb3b5a; width:100px">Hình Ảnh</th>
+            <th style="color: #eb3b5a; width:100px">Hình Ảnh</th>
+            <th style="color: #eb3b5a; width:80px">Giá Bán</th>
+            <th style="color: #eb3b5a; width:190px">Thêm, Sửa, Xóa</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoaiSP.TenLoaiSp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSP)
+                </td>
+
+                <td>
+                    @truncate(item.MoTa, 70)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ton)
+                </td>
+                <td>
+                    <img alt="@item.HinhAnh1" src="~/IMG/IMGSamPham/@item.HinhAnh1" width="80" height="65" />
+                </td>
+                <td>
+                    <img alt="@item.HinhAnh1" src="~/IMG/IMGSamPham/@item.HinhAnh2" width="80" height="65" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gia)
+                </td>
+                <td>
+
+                    <button style="color: #17c0eb;  background: rgb(255, 204, 204,0.5) " type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-wrench"></span>
+                        @Html.ActionLink("Sửa", "SuaSanPham", new { id = item.IdSanPham })
+                    </button>
+
+                    <button style="color: #c56cf0; background: rgb(255, 204, 204,0.5) " type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                        @Html.ActionLink("Chi Tiết", "ChiTietSanPham", new { id = item.IdSanPham })
+                    </button>
+
+                    <p style="text-align:center">
+                        <button style="color: #ff4d4d; background: rgb(255, 204, 204,0.5) " type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            @Html.ActionLink("Xóa", "XoaSanPham", new { id = item.IdSanPham }, new { onclick = "return confirm('Bạn có muốn xóa không?');" })
+                        </button>
+                    </p>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="MenuTrang" style="display:inline">
+        Trang @(Model.PageCount<Model.PageNumber ? 0:Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("SanPhamsPartial", "SanPham", new { page = page }))
+    </div>
+}
+else if(Session["idQuyen"].ToString() != "1") { 
+    <h1>
+        BẠN KHÔNG THỂ VÀO PHẦN NÀY
+    </h1>
+}
+
+

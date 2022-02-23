@@ -1,0 +1,232 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>XemChiTietBaiViet</title>
+    <link href="~/Content/Trang chu/TrangChu.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/ChiTietBaiViet.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/ListBaiViet.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/ListLoaiSanPham.css" rel="stylesheet" />
+    <link href="~/Content/Trang chu/CommentND.css" rel="stylesheet" />
+    <script src="~/Content/JavaScript/Comment.js"></script>
+    <link href="~/Content/Trang chu/Kcal.css" rel="stylesheet" />
+    <script src="~/Content/JavaScript/BMI.js"></script>
+    <link href="~/Content/Trang chu/CAlo.css" rel="stylesheet" />
+    <script src="~/Content/JavaScript/Calo.js"></script>
+    <script src="~/Content/JavaScript/jquery-3.2.1.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('.home__myself').click(function () {
+                jQuery('.Trangcanhan').toggleClass('Trangcanhan__show')
+            })
+            jQuery('#Header__menu__info').click(function () {
+                jQuery('.nav.navbar-nav.navbar-right').toggleClass('nav.navbar-navnavbar-right__show')
+            })
+            jQuery('#Header__menu__info').click(function () {
+                jQuery('.Sucess').toggleClass('Sucess__show')
+            })
+            jQuery('#dangky').click(function () {
+                jQuery('.DangNhappartial').removeClass('DangNhappartial__show')
+                jQuery('.DangKypartial').toggleClass('DangKypartial__show')
+                jQuery('.ForgotPasswordpartial').removeClass('ForgotPasswordpartial__show')
+            })
+            jQuery('#dangnhap').click(function () {
+                jQuery('.DangKypartial').removeClass('DangKypartial__show')
+                jQuery('.DangNhappartial').toggleClass('DangNhappartial__show')
+                jQuery('.ForgotPasswordpartial').removeClass('ForgotPasswordpartial__show')
+            })
+            jQuery('#quenmatkhau').click(function () {
+                jQuery('.DangNhappartial').removeClass('DangNhappartial__show')
+                jQuery('.DangKypartial').removeClass('DangKypartial__show')
+                jQuery('.ForgotPasswordpartial').toggleClass('ForgotPasswordpartial__show')
+            })
+            jQuery('.border__TimKiem__BMI').click(function () {
+                jQuery('.Kcal').addClass('Kcal__SHOW');
+                jQuery('.shadow__first').addClass('shadow__first__show');
+            })
+            jQuery('.shadow__first').click(function () {
+                jQuery('.Kcal').removeClass('Kcal__SHOW');
+                jQuery('.shadow__first').removeClass('shadow__first__show');
+            })
+            jQuery('.TimKiem__kcal').click(function () {
+                jQuery('.Calo').addClass('Calo__show');
+                jQuery('.shadow__first').addClass('shadow__first__show');
+            })
+            jQuery('.shadow__first').click(function () {
+                jQuery('.Calo').removeClass('Calo__show');
+                jQuery('.shadow__first').removeClass('shadow__first__show');
+            })
+            jQuery(window).scroll(function () {
+                if (jQuery(this).scrollTop()) {
+                    jQuery('.Header__menu').addClass('sticky5');
+                    jQuery('.Header__menu__list').addClass('sticky');
+                    jQuery('.Header__logo').addClass('sticky1');
+                    jQuery('li.haha').addClass('sticky2');
+                    jQuery('.fa-align-justify').addClass('sticky3');
+                    jQuery('.introduce').addClass('.introduce__sticky');
+                    jQuery('.Trangcanhan').addClass('.Trangcanhan__sticky');
+                    jQuery('.radius__border').addClass('.radius__border__sticky');
+                    jQuery('.a__home--hover').addClass('.a__home--hover--sticky');
+                }
+                else {
+                    jQuery('.Header__menu').removeClass('sticky5');
+                    jQuery('.Header__menu__list').removeClass('sticky');
+                    jQuery('.Header__logo').removeClass('sticky1');
+                    jQuery('li.haha').removeClass('sticky2');
+                    jQuery('.fa-align-justify').removeClass('sticky3');
+                    jQuery('.introduce').removeClass('.introduce__sticky');
+                    jQuery('.Trangcanhan').removeClass('.Trangcanhan__sticky');
+                    jQuery('.radius__border').removeClass('.radius__border__sticky');
+                    jQuery('.a__home--hover').removeClass('.a__home--hover--sticky');
+                }
+            })
+        })
+    </script>
+</head>
+<div class="shadow__first"></div>
+<body>
+    <div class="Kcal">
+        <div class="Kcal__border">
+            <div class="Tieude__kcal">Tìm kiếm bài viết theo BMI</div>
+            @using (Html.BeginForm("ListBaiVietKcal", "BaiViets", FormMethod.Post))
+            {
+                <div class="Kcal__border__1">
+                    <div class="input__kcal">
+
+                        Cân nặng: <input type="text" placeholder="Cân Nặng = kg" class="input__kcal input__cannang" name="txtCanNang" id="CanNang">
+                        <div class="error__weight error__cannang"></div>
+                    </div>
+                    <div class="input__kcal">
+                        Chiều cao: <input type="text" placeholder="Chiều cao = cm" class="input__kcal input__chieucao" name="txtChieuCao" id="ChieuCao">
+                        <div class="error__height error__chieucao"></div>
+                    </div>
+                    <div class="input__kcal">
+                        <input type="submit" value="Check" class="btn__kcal" onclick="return validationBMI()" />
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+    <div class="Calo">
+        <div class="Calo__border">
+            <div class="Tieude__Calo">Tìm kiếm bài viết theo Calo</div>
+            @using (Html.BeginForm("listCalo", "BaiViets", FormMethod.Post))
+            {
+                <div class="Calo__border__1">
+                    <div class="input__Calo">
+
+                        Min: <input type="text" placeholder="Min=calo" class="input__calo input__min" name="txtMin" id="min">
+                        <div class="error__min"></div>
+                    </div>
+                    <div class="input__Calo">
+                        Đến
+                    </div>
+                    <div class="input__Calo">
+                        Max: <input type="text" placeholder="Max=calo" class="input__calo input__max" name="txtMax" id="max">
+                        <div class="error__max"></div>
+                    </div>
+                    <div class="input__calo">
+                        <input type="submit" value="Check" class="btn__calo" onclick="return validationCalo()" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <header id="Header">
+        <div class="Header__menu">
+            <div class="Header__logo"></div>
+            <ul class="Header__menu__list">
+                <li class="haha"><a href="@Url.Action("SanPhamList", "SanPham")">Sản phẩm</a></li>
+                <li class="haha"><a href="@Url.Action("ListBaiViet", "BaiViets")">Công thức nấu ăn</a></li>
+                <li class="haha"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                <li class="haha"><a href="@Url.Action("DungCuLamBepList", "SanPham")">Dụng cụ nhà bếp</a></li>
+                <li class="haha"><a href="@Url.Action("GioHang", "GioHang")">Giỏ hàng (@Html.Action("GioHangPartial", "GioHang"))</a></li>
+            </ul>
+        </div>
+        <div class="NoiDung__ChiTietSanPham">
+            <div class="NoiDungChiTietBaiViet">
+                <div class="TenBaiViet">
+                    <h2 class="h2__TenBaiViet">Tên Công thức: @ViewBag.product.TenBaiViet</h2>
+                    <h3 class="h3__NgayCapNhap__BaiViet">Ngày Cập nhập: @ViewBag.product.Ngay</h3>
+                    <h3 class="h3__NgayCapNhap__BaiViet">Mức độ calo: @ViewBag.product.kcal</h3>
+                </div>
+                <hr />
+                <div class="HA1__BaiViet"><img alt="@ViewBag.product.HinhAnh1" src="~/IMG/IMGcongthuc/@ViewBag.product.HinhAnh1" /></div>
+                <div class="MoTa__BaiViet">Mô tả:</div>
+                <div class="MoTa__BaiViet">@ViewBag.product.MoTa</div>
+                <hr />
+                <div class="HA2__BaoViet"><img alt="@ViewBag.product.HinhAnh1" src="~/IMG/IMGcongthuc/@ViewBag.product.HinhAnh2" /></div>
+                <div class="NguyenLieu__BaiViet">Nguyên liệu:</div>
+                <div class="NguyenLieu__BaiViet"><a class="a__nguyenLieu" href="@Url.Action("listBaiVietNguyenLieu","BaiViets",new {@tenNguyenLieu=@ViewBag.product.NguyenLieu1 })">@ViewBag.product.NguyenLieu1</a></div>
+                <div class="NguyenLieu__BaiViet"><a class="a__nguyenLieu" href="@Url.Action("listBaiVietNguyenLieu","BaiViets",new {@tenNguyenLieu=@ViewBag.product.NguyenLieu2 })">@ViewBag.product.NguyenLieu2</a></div>
+                <div class="NguyenLieu__BaiViet"><a class="a__nguyenLieu" href="@Url.Action("listBaiVietNguyenLieu","BaiViets",new {@tenNguyenLieu=@ViewBag.product.NguyenLieu3 })">@ViewBag.product.NguyenLieu3</a></div>
+                <div class="NguyenLieu__BaiViet"><a class="a__nguyenLieu" href="@Url.Action("listBaiVietNguyenLieu","BaiViets",new {@tenNguyenLieu=@ViewBag.product.NguyenLieu4 })">@ViewBag.product.NguyenLieu4</a></div>
+                <div class="NguyenLieu__BaiViet"><a class="a__nguyenLieu" href="@Url.Action("listBaiVietNguyenLieu","BaiViets",new {@tenNguyenLieu=@ViewBag.product.NguyenLieu5 })">@ViewBag.product.NguyenLieu5</a></div>
+                <div class="NguyenLieu__BaiViet"><a class="a__nguyenLieu" href="@Url.Action("listBaiVietNguyenLieu","BaiViets",new {@tenNguyenLieu=@ViewBag.product.NguyenLieu6 })">@ViewBag.product.NguyenLieu6</a></div>
+                <div class="NguyenLieu__BaiViet"><a class="a__nguyenLieu" href="@Url.Action("listBaiVietNguyenLieu","BaiViets",new {@tenNguyenLieu=@ViewBag.product.NguyenLieu7 })">@ViewBag.product.NguyenLieu7</a></div>
+                <div class="NguyenLieu__BaiViet"><a class="a__nguyenLieu" href="@Url.Action("listBaiVietNguyenLieu","BaiViets",new {@tenNguyenLieu=@ViewBag.product.NguyenLieu8 })">@ViewBag.product.NguyenLieu8</a></div>
+                <hr />
+                <div class="HA3__BaiViet"><img alt="@ViewBag.product.HinhAnh1" src="~/IMG/IMGcongthuc/@ViewBag.product.HinhAnh3" /></div>
+                <div class="HuongDan__BaiViet">Hướng dẫn:</div>
+                <div class="HuongDan__BaiViet">
+                    @if (ViewBag.congthuc)
+                    {
+                        string[] value = ViewBag.product.HuongDan.ToString().Split('$');
+                        for (int i = 1; i < value.Length; i++)
+                        {
+                            <div>@value[i].ToString()</div>
+                        }
+
+                    }
+                    else
+                    {
+                        <div> Không có hướng dẫn </div>
+                    }
+                </div>
+                <hr />
+                <div class="VideoHuongDan__BaiViet">
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/@ViewBag.product.LinkYoutube" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <hr />
+                <div class="Comment__partial">
+                    @Html.Action("showComment", "BaiViets")
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="Partial__ChuDe__BaiViet">
+            <div class="Partialview__Loai__SP__CT">
+                <div class="List__Loai__SP__partial">@Html.Action("ListLoaiSanPham", "SanPham")</div>
+                <div class="List__Loai__SP__partial">@Html.Action("ListBaiVietChuDe", "BaiViets")</div>
+                <div class="List__Loai__SP__partial margin__border__TimKiem__BMI">
+                    TÌM KIẾM CALO
+                    <div class="border__TimKiem__BMI ">
+                        BMI
+                    </div>
+                    <div class="TimKiem__kcal">
+                        CALC
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
+<style>
+    a.a__nguyenLieu {
+        color: azure;
+        font-family: monospace;
+        font-size: 17px;
+    }
+</style>
+<style>
+    a.Search {
+        color: #8a2be29e;
+    }
+</style>

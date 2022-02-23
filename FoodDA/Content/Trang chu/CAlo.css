@@ -1,0 +1,102 @@
+﻿body {
+}
+
+.Calo {
+    display: none;
+    text-align: center;
+    border-radius: 14px;
+    position: fixed;
+    top: 235px;
+    width: 320px;
+    height: 215px;
+    left: 562px;
+    z-index: 4;
+    font-family: monospace;
+    background: #b1b1b1c7;
+}
+
+.Calo__border {
+    padding-top: 20px;
+    line-height: 31px;
+}
+
+.Tieude__Calo {
+    margin-bottom: 30px;
+    color: azure;
+    font-size: 17px;
+}
+.error__min {
+    height: 30px;
+    color: red;
+    font-family: monospace;
+}
+
+.error__max {
+    height: 30px;
+    color: red;
+    font-family: monospace;
+}
+
+input#min {
+    width: 240px;
+    /* background: #bc9ad191; */
+    border-radius: 7px;
+    border-style: none;
+    height: 28px;
+    /* font-size: 13px; */
+}
+
+input#max {
+    width: 240px;
+    border-radius: 7px;
+    border-style: none;
+    height: 28px;
+}
+
+.input__Calo {
+    margin-left: -40px;
+    /* width: 186px; */
+}
+
+.input__calo { /* margin-left: -2px; */
+}
+
+input.btn__calo {
+    top: 24px;
+    width: 72px;
+    height: 27px;
+    color: black;
+    border-radius: 10px;
+    border-style: none;
+    cursor: pointer;
+    position: relative;
+    left: 70px;
+}
+
+    input.btn__calo:hover {
+        background: linear-gradient(286deg, #00000063, transparent);
+        transition: 0.5s;
+        /* left: 68px; */
+        /* transform: translateX(5px); */
+    }
+
+.Calo.Calo__show {
+    left: 448px;
+    height: 307px;
+    animation: Calo__show 0.5s forwards;
+    display: block;
+    top: 180px;
+    width: 400px;
+}
+
+@keyframes Calo__show {
+    0% {
+        display: none;
+        transform: scale(0);
+    }
+
+    100% {
+        display: block;
+        transform: scale(1);
+    }
+}

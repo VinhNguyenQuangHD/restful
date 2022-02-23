@@ -1,0 +1,90 @@
+﻿body {
+    background: linear-gradient(-61deg, #c2c4c7, #00000096);
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+
+.pageMoTa__SanPham {
+    margin-top: 40px;
+    display: flex;
+}
+
+img.HA2__SanPham__Chitiet {
+    position: absolute;
+}
+
+.NoiDungChiTietSanPham {
+    margin-left: 50px;
+    width: 919px;
+}
+
+.MoTa__SanPham {
+    margin-left: 83px;
+    font-size: 20px;
+    text-align: justify;
+    font-family: monospace;
+    line-height: 26px;
+}
+
+.TenSanPham {
+    font-family: monospace;
+}
+
+.GiaTien__SanPham {
+    left: 336px;
+    font-size: 25px;
+    margin-left: 46px;
+    font-family: monospace;
+    position: relative;
+    top: -99px;
+}
+
+.Cart {
+    display: flex;
+}
+
+i.fas.fa-shopping-cart {
+    /* top: 14px; */
+    margin-right: 18px;
+    font-size: 31px;
+    left: 129px;
+    top: 5px;
+    color: #6a1616;
+    z-index: 1;
+    position: absolute;
+}
+
+.add__Cart {
+    top: -55px;
+    cursor: pointer;
+    border-radius: 7px;
+    background: linear-gradient(45deg,rgb(181 178 178 / 54%),rgb(141 120 120 / 65%));
+    border-style: solid;
+    text-align: center;
+    left: 126px;
+    width: 198px;
+    display: flex;
+    border-width: 2px;
+    background: linear-gradient(2deg, #85616a,#rgb(0.121.222.333), transparent);
+    height: 43px;
+}
+
+
+.Them__gio__hang {
+    left: 127px;
+    position: relative;
+    top: -53px;
+}
+
+    .Them__gio__hang:hover {
+        transition: 0.5s;
+        transform: translate(2);
+        transform: translateX(10px);
+    }
+img.HA2__SanPham__Chitiet:hover {
+    transition: 0.5s;
+    opacity: 0;
+}

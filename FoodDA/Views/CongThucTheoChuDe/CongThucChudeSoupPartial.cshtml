@@ -1,0 +1,35 @@
+﻿
+@using FoodDA.Models;
+@model List<BaiViet>
+
+<head>
+    <link href="~/Content/Trang chu/ChuDeSoupPartial.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="Soup">MÓN SOUP</div>
+    <div class="border__all__Soup"></div>
+    <header id="partial__chude__Soup">
+        @foreach (var item in Model)
+        {
+            <div class="Congthuc__soup">
+                <div class="tinto__Soup">
+                    <div class="img"></div>
+                    <div class="pink__Soup"></div>
+                    <div class="Soup__gadient"></div>
+                    <div class="Soup__border"></div>
+                    <div class="Soup2__border"></div>
+                    <a class="tenmonsoup" href="@Url.Action("XemChiTietBaiViet","BaiViets",new {id=item.IdBaiViet })">@item.TenBaiViet</a>
+                    <div class="img1__Soup">
+                        <img alt="@item.HinhAnh1" src="~/IMG/IMGcongthuc/@item.HinhAnh1" />
+                    </div>
+                    <div class="img2__Soup">
+                        <img alt="@item.HinhAnh2" src="~/IMG/IMGcongthuc/@item.HinhAnh2" />
+                    </div>
+                    <div class="img3__Soup">
+                        <img alt="@item.HinhAnh3" src="~/IMG/IMGcongthuc/@item.HinhAnh3" />
+                    </div>
+                </div>
+            </div>
+        }
+    </header>
+</body>
